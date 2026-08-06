@@ -1,7 +1,7 @@
 {
   "name": "0xVera Apps",
   "short_name": "0xVera",
-  "description": "Official app catalog for 0xVera Devs",
+  "description": "Official app catalog for 0xVera",
   "start_url": "/",
   "display": "browser",
   "background_color": "#f6f7f9",

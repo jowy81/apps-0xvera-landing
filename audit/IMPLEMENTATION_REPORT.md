@@ -110,7 +110,7 @@ gh auth status
 # Confirm: Logged in to github.com account jowy81
 
 git branch -M main
-gh repo create jowy81/apps-0xvera-landing --public --source=. --remote=origin --description "Official 0xVera Devs apps catalog (apps.0xvera.com)"
+gh repo create jowy81/apps-0xvera-landing --public --source=. --remote=origin --description "Official 0xVera apps catalog (apps.0xvera.com)"
 git push -u origin main
 ```
 
@@ -146,4 +146,4 @@ git push -u origin main
 
 ## Identity note
 
-Public identity used throughout: **0xVera Devs** (developer identity, not presented as a registered company/legal entity).
+Public identity used throughout: **0xVera** (developer identity, not presented as a registered company/legal entity).

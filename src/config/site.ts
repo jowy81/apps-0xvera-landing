@@ -2,8 +2,8 @@ export const locales = ['en', 'es', 'ca', 'fr', 'de', 'it'] as const;
 export type Locale = (typeof locales)[number];
 export const defaultLocale: Locale = 'en';
 
-/** Locales that have dedicated translated content files. Others fall back to English. */
-export const contentLocales = ['en', 'es'] as const;
+/** Locales with dedicated app “vcard” content files. */
+export const contentLocales = ['en', 'es', 'ca', 'fr', 'de', 'it'] as const;
 export type ContentLocale = (typeof contentLocales)[number];
 
 export const localeMeta: Record<
@@ -56,7 +56,7 @@ export const localeMeta: Record<
 
 export const siteConfig = {
   name: '0xVera',
-  developerIdentity: '0xVera Devs',
+  developerIdentity: '0xVera',
   domain: 'apps.0xvera.com',
   defaultTitle: {
     en: 'Apps by 0xVera',

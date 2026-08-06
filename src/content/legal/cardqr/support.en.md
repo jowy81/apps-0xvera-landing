@@ -3,7 +3,7 @@ appSlug: cardqr
 type: support
 locale: en
 title: CardQR Support
-description: How to contact 0xVera Devs for CardQR support.
+description: How to contact 0xVera for CardQR support.
 draft: false
 updatedAt: 2026-08-06
 ---

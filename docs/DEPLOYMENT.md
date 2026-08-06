@@ -70,7 +70,7 @@ Authenticated account must be `jowy81`. Example commands (do not run until revie
 
 ```bash
 gh auth status
-gh repo create jowy81/apps-0xvera-landing --public --source=. --remote=origin --description "Official 0xVera Devs apps catalog (apps.0xvera.com)"
+gh repo create jowy81/apps-0xvera-landing --public --source=. --remote=origin --description "Official 0xVera apps catalog (apps.0xvera.com)"
 git push -u origin main
 ```
 

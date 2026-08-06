@@ -14,11 +14,13 @@ updatedAt: 2026-08-06
 
 This policy describes how the public website at `apps.0xvera.com` handles information. It applies to the catalog site itself, not necessarily to each listed application.
 
+Legal pages on this catalog (privacy, cookies and related notices) are provided in **English** for now.
+
 ## Who operates this site
 
-This site is published under the public developer identity **0xVera Devs**.
+This site is published by **0xVera**.
 
-> Placeholder: legal responsible person / jurisdiction — to be completed when confirmed. This page does not assert that 0xVera Devs is a registered company or legal entity.
+> Placeholder: legal responsible person / jurisdiction — to be completed when confirmed. This page does not assert that 0xVera is a registered company or legal entity.
 
 Contact:
 
@@ -27,7 +29,7 @@ Contact:
 
 ## Hosting
 
-> Placeholder: definitive hosting provider — intended deployment is Cloudflare Pages. Confirm before treating this as a formal legal statement.
+> Placeholder: definitive hosting provider — intended deployment is Cloudflare Pages / Vercel. Confirm before treating this as a formal legal statement.
 
 The site is a static website. No application database is used for this catalog.
 

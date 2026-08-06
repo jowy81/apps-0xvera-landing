@@ -1,6 +1,6 @@
 # apps.0xvera.com
 
-Official public catalog of applications published or developed under the **0xVera Devs** identity.
+Official public catalog of applications published by **0xVera**.
 
 Live target: `https://apps.0xvera.com`
 

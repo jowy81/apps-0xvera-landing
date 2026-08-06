@@ -2,46 +2,29 @@
 
 ## Language strategy
 
-**Recommendation for this project:**
-
 | Content | Approach |
 | --- | --- |
-| UI / catalog chrome | Localize (`en`, `es`, `ca`, `fr`, `de`, `it`) |
-| App marketing copy | Localize when the app is near release; English fallback is OK before that |
-| Privacy / Terms / Cookies | Keep **English as legal source of truth**. Add Spanish (and Catalan if you care about CAT) once the final policy exists. Do **not** mass-translate unfinished drafts into every UI language. |
+| UI / catalog chrome | Localized (`en`, `es`, `ca`, `fr`, `de`, `it`) |
+| App vcards (detail pages) | Localized in all UI languages |
+| Privacy / Cookies / Terms / support legal text | **English only for now** |
 
-Why English is enough for store compliance:
+English is enough for Google Play privacy URLs. Localized legal pages can be added later when final approved text exists and there is real demand.
 
-- Google Play mainly needs a stable public privacy URL with accurate disclosures.
-- A clear English policy is accepted.
-- Translating incomplete/draft policies into 6 languages creates maintenance risk and inconsistent legal wording.
-
-When to localize legal pages:
-
-1. Policy text is final and approved.
-2. You actively market the app in that language.
-3. Prefer EN + ES first; add CA/FR/DE/IT only if there is real demand.
-
-Until then, non-EN/ES locales show the English legal page with a short fallback notice.
+Non-English routes still serve `/[lang]/…/privacy` etc., but the body is the English document with a short notice.
 
 ## Portal
 
 | Route | Source |
 | --- | --- |
-| `/privacy` | `src/content/legal/portal/privacy.*.md` |
-| `/cookies` | `src/content/legal/portal/cookies.*.md` |
-| `/es/privacy` | Spanish portal privacy |
-| `/es/cookies` | Spanish cookies notice |
-
-Portal copy uses placeholders for hosting provider, jurisdiction and legal responsible person. Do not invent corporate/legal entity claims for 0xVera Devs.
+| `/privacy` (+ localized prefixes) | `src/content/legal/portal/privacy.en.md` |
+| `/cookies` (+ localized prefixes) | `src/content/legal/portal/cookies.en.md` |
 
 ## CardQR
 
 | Route | Notes |
 | --- | --- |
 | `/cardqr/privacy` | Temporary draft (`draft: true`, `noindex`) |
-| `/es/cardqr/privacy` | Spanish draft |
-| `/cardqr/support` | Email support guidance |
+| `/cardqr/support` | Email support guidance (English) |
 
 Import path expected from Android repository:
 
@@ -51,13 +34,13 @@ play-store/privacy-policy.md
 
 After import and review:
 
-1. Replace markdown bodies in `src/content/legal/cardqr/privacy.*.md`
+1. Replace markdown body in `src/content/legal/cardqr/privacy.en.md`
 2. Set `draft: false`
 3. Rebuild and verify indexability
 
 ## MeteOpen
 
-Privacy pages are draft placeholders. Do not invent weather-source or data-collection claims.
+Privacy pages are draft placeholders in English.
 
 ## Cupid's Oracle
 
@@ -66,5 +49,3 @@ Canonical privacy is external:
 ```text
 https://cupidsoracle.com/privacy
 ```
-
-Catalog privacy routes explain that and link out. Do not copy CardQR policy text.

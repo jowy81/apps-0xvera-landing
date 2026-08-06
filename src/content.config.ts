@@ -5,7 +5,8 @@ import { z } from 'astro/zod';
 const appStatus = z.enum(['available', 'coming-soon', 'in-development', 'unavailable']);
 const platform = z.enum(['android', 'ios', 'web']);
 const price = z.enum(['free', 'paid', 'freemium']);
-const locale = z.enum(['en', 'es']);
+const locale = z.enum(['en', 'es', 'ca', 'fr', 'de', 'it']);
+const legalLocale = z.enum(['en']);
 
 const httpUrl = z.string().refine((value) => /^https?:\/\//.test(value), {
   message: 'Must be an absolute http(s) URL',
@@ -64,7 +65,7 @@ const legal = defineCollection({
   schema: z.object({
     appSlug: z.string().min(1),
     type: z.enum(['privacy', 'support', 'terms', 'cookies', 'portal-privacy']),
-    locale,
+    locale: legalLocale,
     title: z.string().min(1),
     description: z.string().min(1),
     draft: z.boolean().default(false),

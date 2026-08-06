@@ -16,7 +16,7 @@ hasAnalytics: false
 requiresAccount: false
 worksOffline: true
 shortDescription: Crea, organiza y comparte tarjetas y códigos QR sin conexión, sin cuenta, anuncios ni analítica.
-icon: /apps/cardqr/icon-placeholder.svg
+icon: /apps/cardqr/icon.svg
 privacyUrl: /cardqr/privacy
 supportUrl: /cardqr/support
 featured: true

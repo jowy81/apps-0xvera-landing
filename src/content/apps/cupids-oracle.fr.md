@@ -13,7 +13,7 @@ hasAds: false
 hasAnalytics: false
 requiresAccount: false
 shortDescription: Application à venir de 0xVera avec site et politique de confidentialité dédiés. Détails en attente.
-icon: /apps/cupids-oracle/icon-placeholder.svg
+icon: /apps/cupids-oracle/icon.png
 webUrl: https://cupidsoracle.com
 privacyUrl: https://cupidsoracle.com/privacy
 supportUrl: /cupids-oracle/support

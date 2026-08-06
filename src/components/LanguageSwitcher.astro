@@ -8,37 +8,39 @@ interface Props {
 }
 
 const { locale } = Astro.props;
+const current = localeMeta[locale];
+const options = locales.map((code) => ({
+  code,
+  href: alternatePath(code, Astro.url.pathname),
+  meta: localeMeta[code],
+  current: code === locale,
+}));
 ---
 
-<div class="lang-switch" role="group" aria-label={t(locale, 'lang.label')}>
-  {
-    locales.map((code) => {
-      const href = alternatePath(code, Astro.url.pathname);
-      const meta = localeMeta[code];
-      const current = code === locale;
-      return (
-        <a
-          class:list={['lang-switch__btn', { 'is-active': current }]}
-          href={href}
-          hreflang={meta.htmlLang}
-          aria-label={meta.nativeLabel}
-          aria-current={current ? 'true' : undefined}
-          title={meta.nativeLabel}
-          data-analytics-event="language_change"
-          data-language={code}
-        >
-          <img
-            class="lang-switch__flag"
-            src={meta.flag}
-            alt=""
-            width="22"
-            height="16"
-            loading="lazy"
-            decoding="async"
-          />
-          <span class="sr-only">{meta.nativeLabel}</span>
-        </a>
-      );
-    })
-  }
+<div class="lang-dropdown">
+  <label class="sr-only" for="language-select">{t(locale, 'lang.label')}</label>
+  <div class="lang-dropdown__control">
+    <img
+      class="lang-dropdown__flag"
+      src={current.flag}
+      alt=""
+      width="20"
+      height="14"
+      decoding="async"
+    />
+    <select
+      class="lang-dropdown__select"
+      id="language-select"
+      aria-label={t(locale, 'lang.label')}
+      data-analytics-event="language_change"
+    >
+      {
+        options.map((option) => (
+          <option value={option.href} selected={option.current} data-language={option.code}>
+            {option.meta.nativeLabel}
+          </option>
+        ))
+      }
+    </select>
+  </div>
 </div>

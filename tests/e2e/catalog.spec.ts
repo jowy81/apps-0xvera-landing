@@ -15,13 +15,13 @@ test.describe('catalog site', () => {
     await expect(page.getByText('Coming soon on Google Play')).toBeVisible();
   });
 
-  test('language flags navigate between locales', async ({ page }) => {
+  test('language dropdown navigates between locales', async ({ page }) => {
     await page.goto('/');
-    await page.getByRole('link', { name: 'Español' }).click();
+    await page.locator('#language-select').selectOption({ label: 'Español' });
     await expect(page).toHaveURL(/\/es$/);
     await expect(page.getByRole('heading', { level: 1, name: 'Apps de 0xVera' })).toBeVisible();
 
-    await page.getByRole('link', { name: 'Català' }).click();
+    await page.locator('#language-select').selectOption({ label: 'Català' });
     await expect(page).toHaveURL(/\/ca$/);
     await expect(page.getByRole('heading', { level: 1, name: 'Apps de 0xVera' })).toBeVisible();
   });

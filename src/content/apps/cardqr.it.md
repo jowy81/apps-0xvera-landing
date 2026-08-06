@@ -16,7 +16,7 @@ hasAnalytics: false
 requiresAccount: false
 worksOffline: true
 shortDescription: Crea, organizza e condividi schede e QR code offline—senza account, annunci o analytics.
-icon: /apps/cardqr/icon-placeholder.svg
+icon: /apps/cardqr/icon.svg
 privacyUrl: /cardqr/privacy
 supportUrl: /cardqr/support
 featured: true

@@ -13,7 +13,7 @@ hasAds: false
 hasAnalytics: false
 requiresAccount: false
 shortDescription: Weather-focused application from 0xVera. Details are being prepared before publication.
-icon: /apps/meteopen/icon-placeholder.svg
+icon: /apps/meteopen/icon.svg
 privacyUrl: /meteopen/privacy
 supportUrl: /meteopen/support
 featured: false

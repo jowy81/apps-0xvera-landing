@@ -13,7 +13,7 @@ hasAds: false
 hasAnalytics: false
 requiresAccount: false
 shortDescription: Aplicació propera de 0xVera amb lloc web i política de privadesa propis. Detalls pendents de confirmació.
-icon: /apps/cupids-oracle/icon-placeholder.svg
+icon: /apps/cupids-oracle/icon.png
 webUrl: https://cupidsoracle.com
 privacyUrl: https://cupidsoracle.com/privacy
 supportUrl: /cupids-oracle/support

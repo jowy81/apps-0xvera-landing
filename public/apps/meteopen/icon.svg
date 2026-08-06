@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 108 108" role="img" aria-label="MeteOpen">
+  <!-- Source: MeteOpen Android ic_launcher_foreground.xml -->
+  <rect width="108" height="108" rx="22" fill="#4A90D9"/>
+  <path fill="#FFFFFF" d="M54,28c-14.36,0 -26,11.64 -26,26c0,14.36 11.64,26 26,26s26,-11.64 26,-26c0,-14.36 -11.64,-26 -26,-26zM54,72c-9.94,0 -18,-8.06 -18,-18s8.06,-18 18,-18s18,8.06 18,18s-8.06,18 -18,18z"/>
+  <path fill="#FFFFFF" d="M30,68c-2,4 -3,8 -3,12h54c0,-4 -1,-8 -3,-12c-6,4 -13,6 -24,6s-18,-2 -24,-6z"/>
+</svg>

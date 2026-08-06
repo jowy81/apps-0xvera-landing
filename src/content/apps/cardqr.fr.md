@@ -16,7 +16,7 @@ hasAnalytics: false
 requiresAccount: false
 worksOffline: true
 shortDescription: Créez, organisez et partagez cartes et QR codes hors ligne—sans compte, pubs ni analytique.
-icon: /apps/cardqr/icon-placeholder.svg
+icon: /apps/cardqr/icon.svg
 privacyUrl: /cardqr/privacy
 supportUrl: /cardqr/support
 featured: true

@@ -16,7 +16,7 @@ hasAnalytics: false
 requiresAccount: false
 worksOffline: true
 shortDescription: Karten und QR-Codes offline erstellen, organisieren und teilen—ohne Konto, Werbung oder Analytics.
-icon: /apps/cardqr/icon-placeholder.svg
+icon: /apps/cardqr/icon.svg
 privacyUrl: /cardqr/privacy
 supportUrl: /cardqr/support
 featured: true

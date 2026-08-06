@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 108 108" role="img" aria-label="CardQR">
+  <!-- Source: CardQR Android adaptive icon (ic_launcher_background + ic_launcher_foreground) -->
+  <rect width="108" height="108" rx="22" fill="#1B5FA8"/>
+  <!-- QR finder pattern top-left -->
+  <path fill="#FFFFFF" d="M36,34h14v14h-14z"/>
+  <path fill="#1B5FA8" d="M39,37h8v8h-8z"/>
+  <!-- QR finder pattern top-right -->
+  <path fill="#FFFFFF" d="M58,34h14v14h-14z"/>
+  <path fill="#1B5FA8" d="M61,37h8v8h-8z"/>
+  <!-- QR finder pattern bottom-left -->
+  <path fill="#FFFFFF" d="M36,56h14v14h-14z"/>
+  <path fill="#1B5FA8" d="M39,59h8v8h-8z"/>
+  <!-- Data modules bottom-right -->
+  <path fill="#FFFFFF" d="M58,56h4v4h-4z"/>
+  <path fill="#FFFFFF" d="M66,56h4v4h-4z"/>
+  <path fill="#FFFFFF" d="M62,60h4v4h-4z"/>
+  <path fill="#FFFFFF" d="M58,64h4v4h-4z"/>
+  <path fill="#FFFFFF" d="M66,64h4v4h-4z"/>
+</svg>

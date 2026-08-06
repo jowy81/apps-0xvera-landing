@@ -1,6 +1,11 @@
 # Assets required
 
-Placeholder icons currently ship under `public/apps/*/icon-placeholder.svg`. Replace before store launch marketing.
+Web icons now use the real app artwork:
+
+- CardQR / MeteOpen: converted from each Android adaptive launcher vector
+- Cupid's Oracle: official `logo` / 512 web manifest asset from cupids-oracle-app
+
+Still pending for store listings:
 
 ## Per app checklist
 

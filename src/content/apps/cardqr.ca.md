@@ -16,7 +16,7 @@ hasAnalytics: false
 requiresAccount: false
 worksOffline: true
 shortDescription: Crea, organitza i comparteix targetes i codis QR sense connexió, sense compte, anuncis ni analítica.
-icon: /apps/cardqr/icon-placeholder.svg
+icon: /apps/cardqr/icon.svg
 privacyUrl: /cardqr/privacy
 supportUrl: /cardqr/support
 featured: true

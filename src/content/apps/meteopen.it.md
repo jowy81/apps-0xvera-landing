@@ -12,7 +12,7 @@ hasAds: false
 hasAnalytics: false
 requiresAccount: false
 shortDescription: Applicazione meteo di 0xVera. I dettagli sono in preparazione prima della pubblicazione.
-icon: /apps/meteopen/icon-placeholder.svg
+icon: /apps/meteopen/icon.svg
 privacyUrl: /meteopen/privacy
 supportUrl: /meteopen/support
 featured: false

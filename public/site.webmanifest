@@ -1,0 +1,23 @@
+{
+  "name": "0xVera Apps",
+  "short_name": "0xVera",
+  "description": "Official app catalog for 0xVera Devs",
+  "start_url": "/",
+  "display": "browser",
+  "background_color": "#f6f7f9",
+  "theme_color": "#0f6e56",
+  "lang": "en",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/apple-touch-icon.svg",
+      "sizes": "180x180",
+      "type": "image/svg+xml"
+    }
+  ]
+}

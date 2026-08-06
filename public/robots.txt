@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://apps.0xvera.com/sitemap-index.xml

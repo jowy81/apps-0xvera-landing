@@ -1,5 +1,29 @@
 # Legal content
 
+## Language strategy
+
+**Recommendation for this project:**
+
+| Content | Approach |
+| --- | --- |
+| UI / catalog chrome | Localize (`en`, `es`, `ca`, `fr`, `de`, `it`) |
+| App marketing copy | Localize when the app is near release; English fallback is OK before that |
+| Privacy / Terms / Cookies | Keep **English as legal source of truth**. Add Spanish (and Catalan if you care about CAT) once the final policy exists. Do **not** mass-translate unfinished drafts into every UI language. |
+
+Why English is enough for store compliance:
+
+- Google Play mainly needs a stable public privacy URL with accurate disclosures.
+- A clear English policy is accepted.
+- Translating incomplete/draft policies into 6 languages creates maintenance risk and inconsistent legal wording.
+
+When to localize legal pages:
+
+1. Policy text is final and approved.
+2. You actively market the app in that language.
+3. Prefer EN + ES first; add CA/FR/DE/IT only if there is real demand.
+
+Until then, non-EN/ES locales show the English legal page with a short fallback notice.
+
 ## Portal
 
 | Route | Source |

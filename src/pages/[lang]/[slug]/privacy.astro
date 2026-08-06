@@ -1,24 +1,36 @@
 ---
 import { render } from 'astro:content';
+import { isLocale, prefixedLocales, type Locale } from '@/config/site';
 import { t } from '@/config/ui';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getAppSlugs, toPublicPrivacyPath } from '@/lib/apps';
 import { getLegalDoc } from '@/lib/legal';
+import { localizedPath } from '@/lib/paths';
 
 export async function getStaticPaths() {
   const slugs = await getAppSlugs();
-  return slugs.map((slug) => ({ params: { slug } }));
+  return prefixedLocales.flatMap((lang) =>
+    slugs.map((slug) => ({
+      params: { lang, slug },
+    })),
+  );
 }
 
-const locale = 'en' as const;
+const langParam = Astro.params.lang;
 const { slug } = Astro.params;
+
+if (!langParam || !isLocale(langParam)) {
+  return Astro.redirect(slug ? `/${slug}/privacy` : '/privacy');
+}
+
+const locale = langParam as Locale;
 const result = await getLegalDoc(slug!, 'privacy', locale);
 
 if (!result) {
-  return Astro.redirect('/404');
+  return Astro.redirect(localizedPath(locale, '/'));
 }
 
-const { entry } = result;
+const { entry, usedFallback } = result;
 const { Content } = await render(entry);
 const canonicalPath = toPublicPrivacyPath(slug!, locale);
 ---
@@ -38,8 +50,16 @@ const canonicalPath = toPublicPrivacyPath(slug!, locale);
         </p>
       )
     }
+    {
+      usedFallback && (
+        <p class="notice" role="note">
+          {t(locale, 'legal.fallbackNotice')}
+        </p>
+      )
+    }
     <article class="prose panel">
       <Content />
     </article>
   </div>
 </BaseLayout>
+

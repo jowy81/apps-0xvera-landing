@@ -1,23 +1,36 @@
 ---
 import { render } from 'astro:content';
+import { isLocale, prefixedLocales, type Locale } from '@/config/site';
+import { t } from '@/config/ui';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getAppSlugs, toPublicSupportPath } from '@/lib/apps';
 import { getLegalDoc } from '@/lib/legal';
+import { localizedPath } from '@/lib/paths';
 
 export async function getStaticPaths() {
   const slugs = await getAppSlugs();
-  return slugs.map((slug) => ({ params: { slug } }));
+  return prefixedLocales.flatMap((lang) =>
+    slugs.map((slug) => ({
+      params: { lang, slug },
+    })),
+  );
 }
 
-const locale = 'en' as const;
+const langParam = Astro.params.lang;
 const { slug } = Astro.params;
+
+if (!langParam || !isLocale(langParam)) {
+  return Astro.redirect(slug ? `/${slug}/support` : '/');
+}
+
+const locale = langParam as Locale;
 const result = await getLegalDoc(slug!, 'support', locale);
 
 if (!result) {
-  return Astro.redirect('/404');
+  return Astro.redirect(localizedPath(locale, '/'));
 }
 
-const { entry } = result;
+const { entry, usedFallback } = result;
 const { Content } = await render(entry);
 const canonicalPath = toPublicSupportPath(slug!, locale);
 ---
@@ -30,8 +43,16 @@ const canonicalPath = toPublicSupportPath(slug!, locale);
   noindex={entry.data.draft}
 >
   <div class="container section">
+    {
+      usedFallback && (
+        <p class="notice" role="note">
+          {t(locale, 'legal.fallbackNotice')}
+        </p>
+      )
+    }
     <article class="prose panel">
       <Content />
     </article>
   </div>
 </BaseLayout>
+

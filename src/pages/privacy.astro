@@ -4,19 +4,20 @@ import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getLegalDoc } from '@/lib/legal';
 
 const locale = 'en' as const;
-const doc = await getLegalDoc('portal', 'portal-privacy', locale);
+const result = await getLegalDoc('portal', 'portal-privacy', locale);
 
-if (!doc) {
+if (!result) {
   throw new Error('Missing portal privacy document for en');
 }
 
-const { Content } = await render(doc);
+const { entry } = result;
+const { Content } = await render(entry);
 ---
 
 <BaseLayout
   locale={locale}
-  title={doc.data.title}
-  description={doc.data.description}
+  title={entry.data.title}
+  description={entry.data.description}
   canonicalPath="/privacy"
 >
   <div class="container section">

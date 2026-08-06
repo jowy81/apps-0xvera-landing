@@ -19,8 +19,7 @@
   }
 
   function getMeasurementId() {
-    var el = document.documentElement;
-    return el.getAttribute('data-ga-id') || '';
+    return document.documentElement.getAttribute('data-ga-id') || '';
   }
 
   function track(eventName, params) {
@@ -55,14 +54,11 @@
     var banner = document.getElementById('consent-banner');
     var consent = getConsent();
     var hasId = Boolean(getMeasurementId());
-
     if (!banner) return;
-
     if (!hasId) {
       banner.hidden = true;
       return;
     }
-
     banner.hidden = consent === 'accepted' || consent === 'rejected';
   }
 
@@ -98,18 +94,27 @@
     return window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
   }
 
+  function syncThemeToggle(resolved) {
+    var button = document.getElementById('theme-toggle');
+    if (!(button instanceof HTMLButtonElement)) return;
+    var nextLabel =
+      resolved === 'dark'
+        ? button.getAttribute('data-label-light')
+        : button.getAttribute('data-label-dark');
+    if (nextLabel) button.setAttribute('aria-label', nextLabel);
+    button.setAttribute('aria-pressed', resolved === 'dark' ? 'true' : 'false');
+    button.dataset.theme = resolved;
+  }
+
   function applyTheme(preference) {
     var resolved = resolveTheme(preference);
     document.documentElement.setAttribute('data-theme', resolved);
     document.documentElement.dataset.themePreference = preference;
-    var select = document.getElementById('theme-select');
-    if (select instanceof HTMLSelectElement) {
-      select.value = preference;
-    }
+    syncThemeToggle(resolved);
   }
 
   function initTheme() {
-    var select = document.getElementById('theme-select');
+    var button = document.getElementById('theme-toggle');
     var stored = 'system';
     try {
       var value = localStorage.getItem(THEME_KEY);
@@ -119,9 +124,10 @@
     }
     applyTheme(stored);
 
-    if (select) {
-      select.addEventListener('change', function () {
-        var next = select.value === 'light' || select.value === 'dark' ? select.value : 'system';
+    if (button) {
+      button.addEventListener('click', function () {
+        var current = resolveTheme(document.documentElement.dataset.themePreference || 'system');
+        var next = current === 'dark' ? 'light' : 'dark';
         try {
           localStorage.setItem(THEME_KEY, next);
         } catch (_error) {
@@ -176,24 +182,12 @@
         track(eventName, {
           link_url: link.href,
           app_slug: link.getAttribute('data-app-slug') || undefined,
+          language: link.getAttribute('data-language') || undefined,
         });
-        return;
-      }
-
-      if (link.hostname && link.hostname !== window.location.hostname) {
+      } else if (link.hostname && link.hostname !== window.location.hostname) {
         track('outbound_link_click', { link_url: link.href });
       }
     });
-
-    var lang = document.getElementById('language-select');
-    if (lang instanceof HTMLSelectElement) {
-      lang.addEventListener('change', function () {
-        track('language_change', { language: lang.value });
-        if (lang.value) {
-          window.location.href = lang.value;
-        }
-      });
-    }
   }
 
   document.addEventListener('DOMContentLoaded', function () {

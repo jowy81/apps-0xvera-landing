@@ -1,5 +1,5 @@
 ---
-import { siteConfig, type Locale } from '@/config/site';
+import { localeMeta, locales, siteConfig, type Locale } from '@/config/site';
 import { absoluteUrl, localizedPath } from '@/lib/paths';
 
 interface Props {
@@ -24,11 +24,10 @@ const {
 
 const siteUrl = siteConfig.siteUrl;
 const canonical = absoluteUrl(siteUrl, canonicalPath);
-const barePath = canonicalPath.replace(/^\/es(?=\/|$)/, '') || '/';
-const alternateEn = absoluteUrl(siteUrl, localizedPath('en', barePath));
-const alternateEs = absoluteUrl(siteUrl, localizedPath('es', barePath));
+const barePath = canonicalPath.replace(/^\/(es|ca|fr|de|it)(?=\/|$)/, '') || '/';
 const imageUrl = absoluteUrl(siteUrl, ogImage);
 const fullTitle = title.includes('0xVera') ? title : `${title} · 0xVera`;
+const meta = localeMeta[locale];
 ---
 
 <meta charset="utf-8" />
@@ -44,20 +43,28 @@ const fullTitle = title.includes('0xVera') ? title : `${title} · 0xVera`;
     <meta name="robots" content="index,follow" />
   )
 }
-<link rel="alternate" hreflang="en" href={alternateEn} />
-<link rel="alternate" hreflang="es" href={alternateEs} />
-<link rel="alternate" hreflang="x-default" href={alternateEn} />
+{
+  locales.map((code) => (
+    <link
+      rel="alternate"
+      hreflang={localeMeta[code].htmlLang}
+      href={absoluteUrl(siteUrl, localizedPath(code, barePath))}
+    />
+  ))
+}
+<link rel="alternate" hreflang="x-default" href={absoluteUrl(siteUrl, localizedPath('en', barePath))} />
 <meta property="og:type" content={ogType} />
 <meta property="og:site_name" content={siteConfig.name} />
 <meta property="og:title" content={fullTitle} />
 <meta property="og:description" content={description} />
 <meta property="og:url" content={canonical} />
 <meta property="og:image" content={imageUrl} />
-<meta property="og:locale" content={siteConfig.ogLocale[locale]} />
-<meta
-  property="og:locale:alternate"
-  content={locale === 'en' ? siteConfig.ogLocale.es : siteConfig.ogLocale.en}
-/>
+<meta property="og:locale" content={meta.ogLocale} />
+{
+  locales
+    .filter((code) => code !== locale)
+    .map((code) => <meta property="og:locale:alternate" content={localeMeta[code].ogLocale} />)
+}
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content={fullTitle} />
 <meta name="twitter:description" content={description} />

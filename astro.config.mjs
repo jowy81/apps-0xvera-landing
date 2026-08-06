@@ -19,6 +19,10 @@ export default defineConfig({
         locales: {
           en: 'en-US',
           es: 'es-ES',
+          ca: 'ca-ES',
+          fr: 'fr-FR',
+          de: 'de-DE',
+          it: 'it-IT',
         },
       },
       filter: (page) => !page.includes('/404'),
@@ -26,7 +30,7 @@ export default defineConfig({
   ],
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'es'],
+    locales: ['en', 'es', 'ca', 'fr', 'de', 'it'],
     routing: {
       prefixDefaultLocale: false,
       redirectToDefaultLocale: false,

@@ -1,0 +1,48 @@
+---
+import { render } from 'astro:content';
+import { isLocale, prefixedLocales, type Locale } from '@/config/site';
+import { t } from '@/config/ui';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getLegalDoc } from '@/lib/legal';
+import { localizedPath } from '@/lib/paths';
+
+export function getStaticPaths() {
+  return prefixedLocales.map((lang) => ({ params: { lang } }));
+}
+
+const langParam = Astro.params.lang;
+if (!langParam || !isLocale(langParam)) {
+  return Astro.redirect('/cookies');
+}
+
+const locale = langParam as Locale;
+const result = await getLegalDoc('portal', 'cookies', locale);
+
+if (!result) {
+  throw new Error(`Missing portal cookies document for ${locale}`);
+}
+
+const { entry, usedFallback } = result;
+const { Content } = await render(entry);
+---
+
+<BaseLayout
+  locale={locale}
+  title={entry.data.title}
+  description={entry.data.description}
+  canonicalPath={localizedPath(locale, '/cookies')}
+>
+  <div class="container section">
+    {
+      usedFallback && (
+        <p class="notice" role="note">
+          {t(locale, 'legal.fallbackNotice')}
+        </p>
+      )
+    }
+    <article class="prose panel">
+      <Content />
+    </article>
+  </div>
+</BaseLayout>
+

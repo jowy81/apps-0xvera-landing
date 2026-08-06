@@ -15,19 +15,25 @@ test.describe('catalog site', () => {
     await expect(page.getByText('Coming soon on Google Play')).toBeVisible();
   });
 
-  test('language switcher navigates to Spanish', async ({ page }) => {
+  test('language flags navigate between locales', async ({ page }) => {
     await page.goto('/');
-    await page.locator('#language-select').selectOption({ label: 'Español' });
+    await page.getByRole('link', { name: 'Español' }).click();
     await expect(page).toHaveURL(/\/es$/);
+    await expect(page.getByRole('heading', { level: 1, name: 'Apps de 0xVera' })).toBeVisible();
+
+    await page.getByRole('link', { name: 'Català' }).click();
+    await expect(page).toHaveURL(/\/ca$/);
     await expect(page.getByRole('heading', { level: 1, name: 'Apps de 0xVera' })).toBeVisible();
   });
 
-  test('theme select updates data-theme', async ({ page }) => {
+  test('theme toggle switches between light and dark', async ({ page }) => {
     await page.goto('/');
-    await page.locator('#theme-select').selectOption('dark');
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'dark');
-    await page.locator('#theme-select').selectOption('light');
-    await expect(page.locator('html')).toHaveAttribute('data-theme', 'light');
+    await page.locator('#theme-toggle').click();
+    const themeAfterFirst = await page.locator('html').getAttribute('data-theme');
+    expect(['light', 'dark']).toContain(themeAfterFirst);
+    await page.locator('#theme-toggle').click();
+    const themeAfterSecond = await page.locator('html').getAttribute('data-theme');
+    expect(themeAfterSecond).not.toBe(themeAfterFirst);
   });
 
   test('CardQR privacy and support are reachable', async ({ page }) => {
@@ -68,8 +74,7 @@ test.describe('catalog site', () => {
 
     await page.evaluate(() => {
       localStorage.setItem('oxvera-analytics-consent', 'rejected');
-      const existing = document.getElementById('ga4-script');
-      existing?.remove();
+      document.getElementById('ga4-script')?.remove();
       document.documentElement.setAttribute('data-ga-id', 'G-TESTONLY123');
     });
     await page.reload();

@@ -1,7 +1,9 @@
 ---
+import LanguageSwitcher from '@/components/LanguageSwitcher.astro';
+import ThemeToggle from '@/components/ThemeToggle.astro';
 import { siteConfig, type Locale } from '@/config/site';
 import { t } from '@/config/ui';
-import { alternatePath, localizedPath } from '@/lib/paths';
+import { localizedPath } from '@/lib/paths';
 
 interface Props {
   locale: Locale;
@@ -9,8 +11,6 @@ interface Props {
 
 const { locale } = Astro.props;
 const home = localizedPath(locale, '/');
-const enHref = alternatePath('en', Astro.url.pathname);
-const esHref = alternatePath('es', Astro.url.pathname);
 ---
 
 <a class="skip-link" href="#main">{t(locale, 'nav.skip')}</a>
@@ -24,17 +24,8 @@ const esHref = alternatePath('es', Astro.url.pathname);
         <li><a href={`${home}#contact`}>{t(locale, 'nav.contact')}</a></li>
       </ul>
       <div class="controls">
-        <label class="sr-only" for="language-select">{t(locale, 'lang.label')}</label>
-        <select class="control" id="language-select" data-analytics-ignore>
-          <option value={enHref} selected={locale === 'en'}>{t(locale, 'lang.en')}</option>
-          <option value={esHref} selected={locale === 'es'}>{t(locale, 'lang.es')}</option>
-        </select>
-        <label class="sr-only" for="theme-select">{t(locale, 'theme.label')}</label>
-        <select class="control" id="theme-select">
-          <option value="system">{t(locale, 'theme.system')}</option>
-          <option value="light">{t(locale, 'theme.light')}</option>
-          <option value="dark">{t(locale, 'theme.dark')}</option>
-        </select>
+        <LanguageSwitcher locale={locale} />
+        <ThemeToggle locale={locale} />
       </div>
     </nav>
   </div>

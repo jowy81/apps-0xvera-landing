@@ -143,19 +143,102 @@ a:hover {
   gap: var(--space-2);
 }
 
-.control {
-  appearance: none;
+.lang-switch {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  padding: 0.2rem;
   border: 1px solid var(--border);
+  border-radius: 999px;
   background: var(--surface);
-  color: var(--text-primary);
-  border-radius: var(--radius-sm);
-  padding: 0.4rem 0.65rem;
-  font: inherit;
-  cursor: pointer;
 }
 
-.control:hover {
+.lang-switch__btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border-radius: 999px;
+  text-decoration: none;
+  border: 1px solid transparent;
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.lang-switch__btn:hover {
+  background: var(--surface-elevated);
+  transform: translateY(-1px);
+}
+
+.lang-switch__btn.is-active {
+  border-color: color-mix(in srgb, var(--accent) 55%, var(--border));
+  background: color-mix(in srgb, var(--accent) 12%, var(--surface));
+}
+
+.lang-switch__flag {
+  width: 1.2rem;
+  height: 0.85rem;
+  border-radius: 2px;
+  object-fit: cover;
+  box-shadow: 0 0 0 1px color-mix(in srgb, var(--border) 80%, transparent);
+}
+
+.theme-toggle {
+  appearance: none;
+  width: 2.4rem;
+  height: 2.4rem;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--surface);
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: border-color var(--transition-fast), background var(--transition-fast), transform var(--transition-fast);
+}
+
+.theme-toggle:hover {
   border-color: color-mix(in srgb, var(--accent) 45%, var(--border));
+  transform: translateY(-1px);
+}
+
+.theme-toggle__icon {
+  display: none;
+}
+
+html[data-theme='light'] .theme-toggle__icon--moon,
+html:not([data-theme]) .theme-toggle__icon--moon {
+  display: block;
+}
+
+html[data-theme='dark'] .theme-toggle__icon--sun {
+  display: block;
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']):not([data-theme='dark']) .theme-toggle__icon--moon {
+    display: none;
+  }
+
+  html:not([data-theme='light']):not([data-theme='dark']) .theme-toggle__icon--sun {
+    display: block;
+  }
+}
+
+.contact-grid {
+  margin-top: 1.5rem;
+}
+
+@media (max-width: 720px) {
+  .lang-switch {
+    gap: 0.1rem;
+  }
+
+  .lang-switch__btn {
+    width: 1.85rem;
+    height: 1.85rem;
+  }
 }
 
 .hero {

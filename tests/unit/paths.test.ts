@@ -1,5 +1,11 @@
 import { describe, expect, it } from 'vitest';
-import { absoluteUrl, alternatePath, localizedPath, stripLocalePrefix } from '../../src/lib/paths';
+import {
+  absoluteUrl,
+  alternatePath,
+  getLocaleFromPathname,
+  localizedPath,
+  stripLocalePrefix,
+} from '../../src/lib/paths';
 
 describe('localizedPath', () => {
   it('keeps English unprefixed', () => {
@@ -7,16 +13,18 @@ describe('localizedPath', () => {
     expect(localizedPath('en', '/cardqr')).toBe('/cardqr');
   });
 
-  it('prefixes Spanish routes', () => {
+  it('prefixes non-default locales', () => {
     expect(localizedPath('es', '/')).toBe('/es');
-    expect(localizedPath('es', '/cardqr/privacy')).toBe('/es/cardqr/privacy');
+    expect(localizedPath('ca', '/cardqr/privacy')).toBe('/ca/cardqr/privacy');
+    expect(localizedPath('fr', '/')).toBe('/fr');
   });
 });
 
 describe('stripLocalePrefix', () => {
-  it('removes Spanish prefix', () => {
+  it('removes known locale prefixes', () => {
     expect(stripLocalePrefix('/es')).toBe('/');
-    expect(stripLocalePrefix('/es/cardqr')).toBe('/cardqr');
+    expect(stripLocalePrefix('/ca/cardqr')).toBe('/cardqr');
+    expect(stripLocalePrefix('/de/privacy')).toBe('/privacy');
   });
 
   it('leaves English paths intact', () => {
@@ -24,10 +32,16 @@ describe('stripLocalePrefix', () => {
   });
 });
 
-describe('alternatePath', () => {
+describe('alternatePath / getLocaleFromPathname', () => {
   it('maps between locales', () => {
     expect(alternatePath('es', '/cardqr')).toBe('/es/cardqr');
     expect(alternatePath('en', '/es/cardqr')).toBe('/cardqr');
+    expect(alternatePath('it', '/fr/cardqr')).toBe('/it/cardqr');
+  });
+
+  it('detects locale from pathname', () => {
+    expect(getLocaleFromPathname('/ca/cardqr')).toBe('ca');
+    expect(getLocaleFromPathname('/cardqr')).toBe('en');
   });
 });
 

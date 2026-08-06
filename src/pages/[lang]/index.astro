@@ -1,0 +1,27 @@
+---
+import HomePage from '@/components/HomePage.astro';
+import { isLocale, prefixedLocales, siteConfig, type Locale } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { localizedPath } from '@/lib/paths';
+
+export function getStaticPaths() {
+  return prefixedLocales.map((lang) => ({ params: { lang } }));
+}
+
+const langParam = Astro.params.lang;
+if (!langParam || !isLocale(langParam)) {
+  return Astro.redirect('/');
+}
+
+const locale = langParam as Locale;
+---
+
+<BaseLayout
+  locale={locale}
+  title={siteConfig.defaultTitle[locale]}
+  description={siteConfig.defaultDescription[locale]}
+  canonicalPath={localizedPath(locale, '/')}
+>
+  <HomePage locale={locale} />
+</BaseLayout>
+

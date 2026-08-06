@@ -1,22 +1,32 @@
 ---
 import AppDetail from '@/components/AppDetail.astro';
-import { siteConfig } from '@/config/site';
+import { isLocale, prefixedLocales, siteConfig, type Locale } from '@/config/site';
 import BaseLayout from '@/layouts/BaseLayout.astro';
 import { getAppBySlug, getAppSlugs, toAppPath } from '@/lib/apps';
-import { absoluteUrl } from '@/lib/paths';
+import { absoluteUrl, localizedPath } from '@/lib/paths';
 import { buildSoftwareApplicationJsonLd } from '@/lib/schema';
 
 export async function getStaticPaths() {
   const slugs = await getAppSlugs();
-  return slugs.map((slug) => ({ params: { slug } }));
+  return prefixedLocales.flatMap((lang) =>
+    slugs.map((slug) => ({
+      params: { lang, slug },
+    })),
+  );
 }
 
-const locale = 'es' as const;
+const langParam = Astro.params.lang;
 const { slug } = Astro.params;
+
+if (!langParam || !isLocale(langParam)) {
+  return Astro.redirect(slug ? `/${slug}` : '/');
+}
+
+const locale = langParam as Locale;
 const app = await getAppBySlug(slug!, locale);
 
 if (!app) {
-  return Astro.redirect('/es');
+  return Astro.redirect(localizedPath(locale, '/'));
 }
 
 const canonicalPath = toAppPath(app.data.slug, locale);
@@ -36,3 +46,5 @@ const jsonLd = buildSoftwareApplicationJsonLd(app, locale, siteConfig.siteUrl, p
     <AppDetail app={app} locale={locale} />
   </div>
 </BaseLayout>
+
+

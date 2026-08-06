@@ -1,0 +1,70 @@
+---
+import { siteConfig, type Locale } from '@/config/site';
+import { absoluteUrl, localizedPath } from '@/lib/paths';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  canonicalPath: string;
+  noindex?: boolean;
+  ogImage?: string;
+  ogType?: string;
+}
+
+const {
+  locale,
+  title,
+  description,
+  canonicalPath,
+  noindex = false,
+  ogImage = '/og-default.svg',
+  ogType = 'website',
+} = Astro.props;
+
+const siteUrl = siteConfig.siteUrl;
+const canonical = absoluteUrl(siteUrl, canonicalPath);
+const barePath = canonicalPath.replace(/^\/es(?=\/|$)/, '') || '/';
+const alternateEn = absoluteUrl(siteUrl, localizedPath('en', barePath));
+const alternateEs = absoluteUrl(siteUrl, localizedPath('es', barePath));
+const imageUrl = absoluteUrl(siteUrl, ogImage);
+const fullTitle = title.includes('0xVera') ? title : `${title} · 0xVera`;
+---
+
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="generator" content={Astro.generator} />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<link rel="canonical" href={canonical} />
+{
+  noindex ? (
+    <meta name="robots" content="noindex,nofollow" />
+  ) : (
+    <meta name="robots" content="index,follow" />
+  )
+}
+<link rel="alternate" hreflang="en" href={alternateEn} />
+<link rel="alternate" hreflang="es" href={alternateEs} />
+<link rel="alternate" hreflang="x-default" href={alternateEn} />
+<meta property="og:type" content={ogType} />
+<meta property="og:site_name" content={siteConfig.name} />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={imageUrl} />
+<meta property="og:locale" content={siteConfig.ogLocale[locale]} />
+<meta
+  property="og:locale:alternate"
+  content={locale === 'en' ? siteConfig.ogLocale.es : siteConfig.ogLocale.en}
+/>
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={imageUrl} />
+<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+<link rel="icon" href="/favicon.ico" />
+<link rel="apple-touch-icon" href="/apple-touch-icon.svg" />
+<link rel="manifest" href="/site.webmanifest" />
+<meta name="theme-color" content="#0f6e56" />
+<script is:inline src="/js/theme-init.js"></script>

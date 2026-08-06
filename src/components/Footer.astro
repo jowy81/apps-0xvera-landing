@@ -1,0 +1,34 @@
+---
+import { siteConfig, type Locale } from '@/config/site';
+import { t } from '@/config/ui';
+import { localizedPath } from '@/lib/paths';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const year = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="container site-footer__grid">
+    <div>
+      <p><strong>{t(locale, 'footer.identity')}</strong></p>
+      <p class="muted">{t(locale, 'footer.tagline')}</p>
+      <p class="muted">© {year} {siteConfig.name}. {t(locale, 'footer.rights')}</p>
+    </div>
+    <nav aria-label="Footer">
+      <ul>
+        <li><a href={localizedPath(locale, '/privacy')}>{t(locale, 'nav.privacy')}</a></li>
+        <li><a href={localizedPath(locale, '/cookies')}>{t(locale, 'nav.cookies')}</a></li>
+        <li>
+          <a href="#consent-banner" id="manage-analytics">{t(locale, 'consent.manage')}</a>
+        </li>
+        <li>
+          <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+</footer>

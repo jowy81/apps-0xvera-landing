@@ -1,0 +1,25 @@
+---
+import { siteConfig } from '@/config/site';
+import { t } from '@/config/ui';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { localizedPath } from '@/lib/paths';
+
+const locale = 'en' as const;
+---
+
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'notFound.title')}
+  description={t(locale, 'notFound.body')}
+  canonicalPath="/404"
+  noindex={true}
+>
+  <div class="container section">
+    <h1 class="section__title">{t(locale, 'notFound.title')}</h1>
+    <p class="section__subtitle">{t(locale, 'notFound.body')}</p>
+    <p>
+      <a href={localizedPath(locale, '/')}>{t(locale, 'notFound.cta')}</a>
+    </p>
+    <p class="muted">{siteConfig.domain}</p>
+  </div>
+</BaseLayout>

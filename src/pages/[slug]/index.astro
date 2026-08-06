@@ -1,0 +1,38 @@
+---
+import AppDetail from '@/components/AppDetail.astro';
+import { siteConfig } from '@/config/site';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getAppBySlug, getAppSlugs, toAppPath } from '@/lib/apps';
+import { absoluteUrl } from '@/lib/paths';
+import { buildSoftwareApplicationJsonLd } from '@/lib/schema';
+
+export async function getStaticPaths() {
+  const slugs = await getAppSlugs();
+  return slugs.map((slug) => ({ params: { slug } }));
+}
+
+const locale = 'en' as const;
+const { slug } = Astro.params;
+const app = await getAppBySlug(slug!, locale);
+
+if (!app) {
+  return Astro.redirect('/404');
+}
+
+const canonicalPath = toAppPath(app.data.slug, locale);
+const pageUrl = absoluteUrl(siteConfig.siteUrl, canonicalPath);
+const jsonLd = buildSoftwareApplicationJsonLd(app, locale, siteConfig.siteUrl, pageUrl);
+---
+
+<BaseLayout
+  locale={locale}
+  title={app.data.seoTitle || app.data.name}
+  description={app.data.seoDescription || app.data.shortDescription}
+  canonicalPath={canonicalPath}
+  ogImage={app.data.icon}
+  jsonLd={jsonLd}
+>
+  <div class="container">
+    <AppDetail app={app} locale={locale} />
+  </div>
+</BaseLayout>

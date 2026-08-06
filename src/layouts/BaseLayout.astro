@@ -1,0 +1,50 @@
+---
+import BaseHead from '@/components/BaseHead.astro';
+import CookieConsent from '@/components/CookieConsent.astro';
+import Footer from '@/components/Footer.astro';
+import Header from '@/components/Header.astro';
+import { siteConfig, type Locale } from '@/config/site';
+import '@/styles/global.css';
+
+interface Props {
+  locale: Locale;
+  title: string;
+  description: string;
+  canonicalPath: string;
+  noindex?: boolean;
+  ogImage?: string;
+  jsonLd?: Record<string, unknown> | Record<string, unknown>[];
+}
+
+const { locale, title, description, canonicalPath, noindex, ogImage, jsonLd } = Astro.props;
+const gaId = siteConfig.gaMeasurementId;
+---
+
+<!doctype html>
+<html lang={locale} data-ga-id={gaId || undefined}>
+  <head>
+    <BaseHead
+      locale={locale}
+      title={title}
+      description={description}
+      canonicalPath={canonicalPath}
+      noindex={noindex}
+      ogImage={ogImage}
+    />
+    {
+      jsonLd && (
+        <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+      )
+    }
+  </head>
+  <body>
+    <Header locale={locale} />
+    <main id="main">
+      <slot />
+    </main>
+    <Footer locale={locale} />
+    <CookieConsent locale={locale} />
+    <script is:inline src="/js/site.js" defer></script>
+  </body>
+</html>
+

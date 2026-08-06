@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="512" height="512" viewBox="0 0 512 512" role="img" aria-label="CardQR icon placeholder">
+  <rect width="512" height="512" rx="96" fill="#0f6e56"/>
+  <rect x="96" y="128" width="320" height="256" rx="28" fill="#ffffff" opacity="0.95"/>
+  <rect x="128" y="168" width="160" height="20" rx="10" fill="#0f6e56"/>
+  <rect x="128" y="212" width="120" height="16" rx="8" fill="#0f6e56" opacity="0.55"/>
+  <rect x="320" y="280" width="64" height="64" rx="8" fill="#0f6e56"/>
+  <text x="256" y="480" text-anchor="middle" fill="#ffffff" font-family="Segoe UI, Arial, sans-serif" font-size="28">PLACEHOLDER</text>
+</svg>

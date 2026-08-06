@@ -1,0 +1,51 @@
+---
+import type { Locale } from '@/config/site';
+import { t } from '@/config/ui';
+import type { AppEntry } from '@/lib/apps';
+import { toAppPath } from '@/lib/apps';
+import StatusBadge from './StatusBadge.astro';
+
+interface Props {
+  app: AppEntry;
+  locale: Locale;
+}
+
+const { app, locale } = Astro.props;
+const href = toAppPath(app.data.slug, locale);
+---
+
+<article>
+  <a
+    class="app-card"
+    href={href}
+    data-analytics-event="app_card_open"
+    data-app-slug={app.data.slug}
+  >
+    <div class="app-card__top">
+      <img
+        class="app-card__icon"
+        src={app.data.icon}
+        alt=""
+        width="56"
+        height="56"
+        loading="lazy"
+        decoding="async"
+      />
+      <div>
+        <h3 class="app-card__name">{app.data.name}</h3>
+        <StatusBadge status={app.data.status} locale={locale} />
+      </div>
+    </div>
+    <p class="app-card__desc">{app.data.shortDescription}</p>
+    <div class="app-card__meta">
+      {
+        app.data.platforms.map((platform) => (
+          <span class="tag">{t(locale, `platform.${platform}`)}</span>
+        ))
+      }
+      <span class="tag">{t(locale, `price.${app.data.price}`)}</span>
+      {app.data.tags.slice(0, 3).map((tag) => <span class="tag">{tag}</span>)}
+    </div>
+    <span class="app-card__cta">{t(locale, 'catalog.viewDetails')}</span>
+  </a>
+</article>

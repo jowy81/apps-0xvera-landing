@@ -1,0 +1,30 @@
+---
+import type { Locale } from '@/config/site';
+import { t } from '@/config/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+---
+
+<div
+  id="consent-banner"
+  class="consent-banner"
+  role="dialog"
+  aria-labelledby="consent-title"
+  aria-describedby="consent-body"
+  hidden
+>
+  <h2 id="consent-title">{t(locale, 'consent.title')}</h2>
+  <p id="consent-body" class="muted">{t(locale, 'consent.body')}</p>
+  <div class="consent-banner__actions">
+    <button type="button" class="button button--primary" data-consent="accept">
+      {t(locale, 'consent.accept')}
+    </button>
+    <button type="button" class="button button--secondary" data-consent="reject">
+      {t(locale, 'consent.reject')}
+    </button>
+  </div>
+</div>

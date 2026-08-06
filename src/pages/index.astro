@@ -1,0 +1,74 @@
+---
+import AppCard from '@/components/AppCard.astro';
+import { siteConfig } from '@/config/site';
+import { t } from '@/config/ui';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getAppsByLocale } from '@/lib/apps';
+
+const locale = 'en' as const;
+const apps = await getAppsByLocale(locale);
+---
+
+<BaseLayout
+  locale={locale}
+  title={siteConfig.defaultTitle.en}
+  description={siteConfig.defaultDescription.en}
+  canonicalPath="/"
+>
+  <section class="hero">
+    <div class="container">
+      <p class="hero__brand">0xVera</p>
+      <h1 class="hero__title">{t(locale, 'hero.title')}</h1>
+      <p class="hero__subtitle">{t(locale, 'hero.subtitle')}</p>
+    </div>
+  </section>
+
+  <section class="section" id="apps" aria-labelledby="apps-title">
+    <div class="container">
+      <header class="section__header">
+        <h2 class="section__title" id="apps-title">{t(locale, 'catalog.title')}</h2>
+        <p class="section__subtitle">{t(locale, 'catalog.subtitle')}</p>
+      </header>
+      {
+        apps.length > 0 ? (
+          <div class="app-grid">
+            {apps.map((app) => (
+              <AppCard app={app} locale={locale} />
+            ))}
+          </div>
+        ) : (
+          <p>{t(locale, 'catalog.empty')}</p>
+        )
+      }
+    </div>
+  </section>
+
+  <section class="section" id="about" aria-labelledby="about-title">
+    <div class="container">
+      <h2 class="section__title" id="about-title">{t(locale, 'about.title')}</h2>
+      <p class="section__subtitle">{t(locale, 'about.body')}</p>
+    </div>
+  </section>
+
+  <section class="section" id="contact" aria-labelledby="contact-title">
+    <div class="container">
+      <h2 class="section__title" id="contact-title">{t(locale, 'contact.title')}</h2>
+      <div class="detail-grid" style="margin-top: 1.5rem;">
+        <div class="panel">
+          <h3>{t(locale, 'contact.supportLabel')}</h3>
+          <p class="muted">{t(locale, 'contact.supportHint')}</p>
+          <p>
+            <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>
+          </p>
+        </div>
+        <div class="panel">
+          <h3>{t(locale, 'contact.generalLabel')}</h3>
+          <p class="muted">{t(locale, 'contact.generalHint')}</p>
+          <p>
+            <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

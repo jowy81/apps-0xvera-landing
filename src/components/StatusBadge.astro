@@ -1,0 +1,17 @@
+---
+import type { Locale } from '@/config/site';
+import { t } from '@/config/ui';
+
+interface Props {
+  status: 'available' | 'coming-soon' | 'in-development' | 'unavailable';
+  locale: Locale;
+}
+
+const { status, locale } = Astro.props;
+const label = t(locale, `status.${status}`);
+---
+
+<span class={`badge badge--${status}`}>
+  <span class="sr-only">{t(locale, 'app.status')}:</span>
+  {label}
+</span>

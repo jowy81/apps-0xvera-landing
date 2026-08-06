@@ -1,0 +1,262 @@
+---
+import { render } from 'astro:content';
+import type { Locale } from '@/config/site';
+import { t } from '@/config/ui';
+import type { AppEntry } from '@/lib/apps';
+import { resolveAppLink } from '@/lib/apps';
+import { localizedPath } from '@/lib/paths';
+import StatusBadge from './StatusBadge.astro';
+
+interface Props {
+  app: AppEntry;
+  locale: Locale;
+}
+
+const { app, locale } = Astro.props;
+const data = app.data;
+const { Content } = await render(app);
+const privacyHref = resolveAppLink(data.privacyUrl, locale);
+const supportHref = resolveAppLink(data.supportUrl, locale);
+const catalogHref = localizedPath(locale, '/');
+---
+
+<article>
+  <p>
+    <a href={`${catalogHref}#apps`}>{t(locale, 'app.backToCatalog')}</a>
+  </p>
+
+  <header class="detail-hero">
+    <img
+      class="detail-hero__icon"
+      src={data.icon}
+      alt=""
+      width="88"
+      height="88"
+      decoding="async"
+    />
+    <div>
+      <h1 class="detail-hero__title">{data.name}</h1>
+      <p class="detail-hero__developer">{t(locale, 'app.developer')}: {data.developer}</p>
+      <div class="app-card__meta">
+        <StatusBadge status={data.status} locale={locale} />
+        {
+          data.platforms.map((platform) => (
+            <span class="tag">{t(locale, `platform.${platform}`)}</span>
+          ))
+        }
+        <span class="tag">{t(locale, `price.${data.price}`)}</span>
+      </div>
+    </div>
+  </header>
+
+  {
+    data.incomplete && (
+      <p class="notice" role="note">
+        {t(locale, 'app.incompleteNotice')}
+      </p>
+    )
+  }
+
+  <div class="detail-grid">
+    <div class="panel prose">
+      <Content />
+      {
+        data.features && data.features.length > 0 && (
+          <>
+            <h2>{t(locale, 'app.features')}</h2>
+            <ul class="feature-list">
+              {data.features.map((feature) => (
+                <li>{feature}</li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+      {
+        data.permissions && data.permissions.length > 0 && (
+          <>
+            <h2>{t(locale, 'app.permissions')}</h2>
+            <ul class="feature-list">
+              {data.permissions.map((permission) => (
+                <li>{permission}</li>
+              ))}
+            </ul>
+          </>
+        )
+      }
+      {
+        data.screenshots && data.screenshots.length > 0 && (
+          <>
+            <h2>{t(locale, 'app.screenshots')}</h2>
+            <div class="screenshots">
+              {data.screenshots.map((shot, index) => (
+                <figure>
+                  <img
+                    src={shot}
+                    alt={`${data.name} screenshot ${index + 1}`}
+                    width="360"
+                    height="640"
+                    loading="lazy"
+                    decoding="async"
+                  />
+                </figure>
+              ))}
+            </div>
+          </>
+        )
+      }
+    </div>
+
+    <aside class="panel">
+      <dl class="definition-list">
+        <div>
+          <dt>{t(locale, 'app.status')}</dt>
+          <dd>{t(locale, `status.${data.status}`)}</dd>
+        </div>
+        <div>
+          <dt>{t(locale, 'app.price')}</dt>
+          <dd>{t(locale, `price.${data.price}`)}</dd>
+        </div>
+        <div>
+          <dt>{t(locale, 'app.hasAds')}</dt>
+          <dd>{data.hasAds ? t(locale, 'app.yes') : t(locale, 'app.no')}</dd>
+        </div>
+        <div>
+          <dt>{t(locale, 'app.hasAnalytics')}</dt>
+          <dd>{data.hasAnalytics ? t(locale, 'app.yes') : t(locale, 'app.no')}</dd>
+        </div>
+        <div>
+          <dt>{t(locale, 'app.requiresAccount')}</dt>
+          <dd>{data.requiresAccount ? t(locale, 'app.yes') : t(locale, 'app.no')}</dd>
+        </div>
+        {
+          typeof data.worksOffline === 'boolean' && (
+            <div>
+              <dt>{t(locale, 'app.worksOffline')}</dt>
+              <dd>{data.worksOffline ? t(locale, 'app.yes') : t(locale, 'app.no')}</dd>
+            </div>
+          )
+        }
+        {
+          data.version && (
+            <div>
+              <dt>{t(locale, 'app.version')}</dt>
+              <dd>{data.version}</dd>
+            </div>
+          )
+        }
+        {
+          data.updatedAt && (
+            <div>
+              <dt>{t(locale, 'app.updated')}</dt>
+              <dd>
+                <time datetime={data.updatedAt.toISOString()}>
+                  {data.updatedAt.toISOString().slice(0, 10)}
+                </time>
+              </dd>
+            </div>
+          )
+        }
+        {
+          data.minimumAndroid && (
+            <div>
+              <dt>{t(locale, 'app.minimumAndroid')}</dt>
+              <dd>{data.minimumAndroid}</dd>
+            </div>
+          )
+        }
+        {
+          data.minimumIos && (
+            <div>
+              <dt>{t(locale, 'app.minimumIos')}</dt>
+              <dd>{data.minimumIos}</dd>
+            </div>
+          )
+        }
+      </dl>
+
+      <h2>{t(locale, 'app.links')}</h2>
+      <ul class="link-list">
+        {
+          data.playStoreUrl ? (
+            <li>
+              <a
+                href={data.playStoreUrl}
+                rel="noopener noreferrer"
+                data-analytics-event="store_link_click"
+                data-app-slug={data.slug}
+              >
+                {t(locale, 'app.playStore')}
+              </a>
+            </li>
+          ) : data.platforms.includes('android') ? (
+            <li>
+              <span aria-disabled="true">{t(locale, 'app.comingSoonPlay')}</span>
+            </li>
+          ) : null
+        }
+        {
+          data.appStoreUrl ? (
+            <li>
+              <a
+                href={data.appStoreUrl}
+                rel="noopener noreferrer"
+                data-analytics-event="store_link_click"
+                data-app-slug={data.slug}
+              >
+                {t(locale, 'app.appStore')}
+              </a>
+            </li>
+          ) : data.platforms.includes('ios') ? (
+            <li>
+              <span aria-disabled="true">{t(locale, 'app.comingSoonStore')}</span>
+            </li>
+          ) : null
+        }
+        {
+          data.webUrl && (
+            <li>
+              <a href={data.webUrl} rel="noopener noreferrer" data-analytics-event="outbound_link_click">
+                {t(locale, 'app.web')}
+              </a>
+            </li>
+          )
+        }
+        <li>
+          <a
+            href={privacyHref}
+            data-analytics-event="privacy_link_click"
+            data-app-slug={data.slug}
+          >
+            {t(locale, 'app.privacy')}
+          </a>
+        </li>
+        <li>
+          <a
+            href={supportHref}
+            data-analytics-event="support_link_click"
+            data-app-slug={data.slug}
+          >
+            {t(locale, 'app.support')}
+          </a>
+        </li>
+        {
+          data.termsUrl && (
+            <li>
+              <a href={resolveAppLink(data.termsUrl, locale)}>{t(locale, 'app.terms')}</a>
+            </li>
+          )
+        }
+        {
+          data.repositoryUrl && (
+            <li>
+              <a href={data.repositoryUrl} rel="noopener noreferrer">
+                {t(locale, 'app.repository')}
+              </a>
+            </li>
+          )
+        }
+      </ul>
+    </aside>
+  </div>
+</article>

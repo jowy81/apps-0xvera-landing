@@ -1,0 +1,27 @@
+---
+import { render } from 'astro:content';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { getLegalDoc } from '@/lib/legal';
+
+const locale = 'en' as const;
+const doc = await getLegalDoc('portal', 'cookies', locale);
+
+if (!doc) {
+  throw new Error('Missing portal cookies document for en');
+}
+
+const { Content } = await render(doc);
+---
+
+<BaseLayout
+  locale={locale}
+  title={doc.data.title}
+  description={doc.data.description}
+  canonicalPath="/cookies"
+>
+  <div class="container section">
+    <article class="prose panel">
+      <Content />
+    </article>
+  </div>
+</BaseLayout>

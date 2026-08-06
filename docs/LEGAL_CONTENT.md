@@ -23,20 +23,16 @@ Non-English routes still serve `/[lang]/…/privacy` etc., but the body is the E
 
 | Route | Notes |
 | --- | --- |
-| `/cardqr/privacy` | Temporary draft (`draft: true`, `noindex`) |
+| `/cardqr/privacy` | Imported from Android `play-store/privacy-policy.md` (`draft: false`, indexable) |
 | `/cardqr/support` | Email support guidance (English) |
 
-Import path expected from Android repository:
+Source of truth in the Android repo:
 
 ```text
-play-store/privacy-policy.md
+D:\Git\orgs\jowy81\apps\CardQR\play-store\privacy-policy.md
 ```
 
-After import and review:
-
-1. Replace markdown body in `src/content/legal/cardqr/privacy.en.md`
-2. Set `draft: false`
-3. Rebuild and verify indexability
+When the Android policy changes, copy the approved text into `src/content/legal/cardqr/privacy.en.md` and bump `updatedAt`.
 
 ## MeteOpen
 

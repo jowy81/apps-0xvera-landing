@@ -171,23 +171,42 @@
   }
 
   function initLanguageSelect() {
-    var select = document.getElementById('language-select');
-    if (!(select instanceof HTMLSelectElement)) return;
-    select.addEventListener('change', function () {
-      var href = select.value;
-      var option = select.selectedOptions[0];
-      var language = option ? option.getAttribute('data-language') || undefined : undefined;
-      if (href) {
-        var pathOnly = href.replace(/[?#].*$/, '');
-        if (/\/feedback\/?$/.test(pathOnly)) {
-          var app = new URLSearchParams(window.location.search).get('app');
-          if (app) {
-            href += (href.indexOf('?') === -1 ? '?' : '&') + 'app=' + encodeURIComponent(app);
-          }
+    var dropdown = document.querySelector('[data-lang-dropdown]');
+    if (!(dropdown instanceof HTMLDetailsElement)) return;
+
+    document.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!(target instanceof Node)) return;
+      if (!dropdown.contains(target)) {
+        dropdown.open = false;
+      }
+    });
+
+    document.addEventListener('keydown', function (event) {
+      if (event.key === 'Escape') {
+        dropdown.open = false;
+      }
+    });
+
+    dropdown.addEventListener('click', function (event) {
+      var target = event.target;
+      if (!(target instanceof Element)) return;
+      var link = target.closest('a[data-language]');
+      if (!(link instanceof HTMLAnchorElement)) return;
+
+      var href = link.getAttribute('href') || link.href;
+      var language = link.getAttribute('data-language') || undefined;
+      var pathOnly = (link.getAttribute('href') || '').replace(/[?#].*$/, '');
+      if (/\/feedback\/?$/.test(pathOnly)) {
+        var app = new URLSearchParams(window.location.search).get('app');
+        if (app) {
+          href += (href.indexOf('?') === -1 ? '?' : '&') + 'app=' + encodeURIComponent(app);
         }
       }
+
+      event.preventDefault();
       track('language_change', { language: language });
-      if (href) window.location.href = href;
+      window.location.href = href;
     });
   }
 

@@ -21,11 +21,13 @@ test.describe('catalog site', () => {
 
   test('language dropdown navigates between locales', async ({ page }) => {
     await page.goto('/');
-    await page.locator('#language-select').selectOption({ label: 'Español' });
+    await page.locator('#language-select').click();
+    await page.locator('.lang-dropdown__option[data-language="es"]').click();
     await expect(page).toHaveURL(/\/es$/);
     await expect(page.getByRole('heading', { level: 1, name: 'Apps de 0xVera' })).toBeVisible();
 
-    await page.locator('#language-select').selectOption({ label: 'Català' });
+    await page.locator('#language-select').click();
+    await page.locator('.lang-dropdown__option[data-language="ca"]').click();
     await expect(page).toHaveURL(/\/ca$/);
     await expect(page.getByRole('heading', { level: 1, name: 'Apps de 0xVera' })).toBeVisible();
   });

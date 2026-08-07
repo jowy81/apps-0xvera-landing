@@ -17,9 +17,12 @@ const options = locales.map((code) => ({
 }));
 ---
 
-<div class="lang-dropdown">
-  <label class="sr-only" for="language-select">{t(locale, 'lang.label')}</label>
-  <div class="lang-dropdown__control">
+<details class="lang-dropdown" data-lang-dropdown>
+  <summary
+    class="lang-dropdown__control"
+    aria-label={t(locale, 'lang.label')}
+    id="language-select"
+  >
     <img
       class="lang-dropdown__flag"
       src={current.flag}
@@ -28,19 +31,31 @@ const options = locales.map((code) => ({
       height="14"
       decoding="async"
     />
-    <select
-      class="lang-dropdown__select"
-      id="language-select"
-      aria-label={t(locale, 'lang.label')}
-      data-analytics-event="language_change"
-    >
-      {
-        options.map((option) => (
-          <option value={option.href} selected={option.current} data-language={option.code}>
-            {option.meta.nativeLabel}
-          </option>
-        ))
-      }
-    </select>
-  </div>
-</div>
+    <span class="lang-dropdown__current">{current.nativeLabel}</span>
+  </summary>
+  <ul class="lang-dropdown__menu" role="listbox" aria-labelledby="language-select">
+    {
+      options.map((option) => (
+        <li role="option" aria-selected={option.current ? 'true' : 'false'}>
+          <a
+            class:list={['lang-dropdown__option', { 'is-current': option.current }]}
+            href={option.href}
+            hreflang={option.code}
+            data-language={option.code}
+            aria-current={option.current ? 'true' : undefined}
+          >
+            <img
+              class="lang-dropdown__flag"
+              src={option.meta.flag}
+              alt=""
+              width="20"
+              height="14"
+              decoding="async"
+            />
+            <span>{option.meta.nativeLabel}</span>
+          </a>
+        </li>
+      ))
+    }
+  </ul>
+</details>

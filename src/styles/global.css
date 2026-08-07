@@ -673,13 +673,8 @@ a.button {
 
 .choice-card {
   min-height: 3.5rem;
-  justify-content: flex-start;
+  justify-content: center;
   padding-inline: var(--space-4);
-}
-
-.choice-card__flag {
-  font-size: 1.25rem;
-  line-height: 1;
 }
 
 @media (max-width: 720px) {

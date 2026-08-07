@@ -18,16 +18,20 @@
 
 ## Events
 
-| Event | When |
-| --- | --- |
-| `app_card_open` | App card / detail entry link clicked |
-| `store_link_click` | Play / App Store link clicked |
-| `privacy_link_click` | Privacy link clicked |
-| `support_link_click` | Support link clicked |
-| `language_change` | Language select changed |
-| `theme_change` | Theme select changed |
-| `outbound_link_click` | External link clicked |
-| `consent_update` | User accepted analytics |
+| Event | When | Parameters |
+| --- | --- | --- |
+| `app_card_open` | App card / detail entry link clicked | legacy |
+| `store_link_click` | Play / App Store link clicked | legacy |
+| `privacy_link_click` | Privacy link clicked | legacy |
+| `support_link_click` | Support link clicked | legacy |
+| `language_change` | Language select changed | `language` |
+| `theme_change` | Theme select changed | legacy |
+| `outbound_link_click` | External link clicked | legacy |
+| `consent_update` | User accepted analytics | legacy |
+| `feedback_language_selected` | EN/ES feedback form opened | `language`, `app`, `source` |
+| `feedback_open` | Feedback entry opened (form or app detail) | `language`, `app`, `source` |
+| `tester_group_open` | Android Testers join CTA | `source` |
+| `tester_feedback_open` | Feedback link from `/testers` | `source` |
 
 ## Never send
 
@@ -35,6 +39,7 @@
 - Support message text
 - Personal data
 - Sensitive URL query contents
+- Google Form / Group IDs as event payloads
 - Unnecessary identifiers beyond GA defaults after consent
 
 ## Privacy docs

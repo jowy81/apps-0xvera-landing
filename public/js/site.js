@@ -177,12 +177,38 @@
       var href = select.value;
       var option = select.selectedOptions[0];
       var language = option ? option.getAttribute('data-language') || undefined : undefined;
-      track('language_change', { language: language, link_url: href });
+      if (href) {
+        var pathOnly = href.replace(/[?#].*$/, '');
+        if (/\/feedback\/?$/.test(pathOnly)) {
+          var app = new URLSearchParams(window.location.search).get('app');
+          if (app) {
+            href += (href.indexOf('?') === -1 ? '?' : '&') + 'app=' + encodeURIComponent(app);
+          }
+        }
+      }
+      track('language_change', { language: language });
       if (href) window.location.href = href;
     });
   }
 
+  function communityEventParams(link) {
+    var app =
+      link.getAttribute('data-app') || link.getAttribute('data-app-slug') || undefined;
+    return {
+      language: link.getAttribute('data-language') || undefined,
+      app: app || undefined,
+      source: link.getAttribute('data-source') || undefined,
+    };
+  }
+
   function initAnalyticsHooks() {
+    var communityEvents = {
+      feedback_language_selected: true,
+      feedback_open: true,
+      tester_group_open: true,
+      tester_feedback_open: true,
+    };
+
     document.addEventListener('click', function (event) {
       var target = event.target;
       if (!(target instanceof Element)) return;
@@ -191,11 +217,19 @@
 
       var eventName = link.getAttribute('data-analytics-event');
       if (eventName) {
-        track(eventName, {
-          link_url: link.href,
-          app_slug: link.getAttribute('data-app-slug') || undefined,
-          language: link.getAttribute('data-language') || undefined,
-        });
+        if (communityEvents[eventName]) {
+          track(eventName, communityEventParams(link));
+          var secondary = link.getAttribute('data-analytics-event-secondary');
+          if (secondary && communityEvents[secondary]) {
+            track(secondary, communityEventParams(link));
+          }
+        } else {
+          track(eventName, {
+            link_url: link.href,
+            app_slug: link.getAttribute('data-app-slug') || undefined,
+            language: link.getAttribute('data-language') || undefined,
+          });
+        }
       } else if (link.hostname && link.hostname !== window.location.hostname) {
         track('outbound_link_click', { link_url: link.href });
       }

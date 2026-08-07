@@ -1,0 +1,80 @@
+---
+import {
+  communityConfig,
+  getTestersJoinHref,
+  hasTestersGroupUrl,
+} from '@/config/community';
+import type { Locale } from '@/config/site';
+import { t } from '@/config/ui';
+import { localizedPath } from '@/lib/paths';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const joinHref = getTestersJoinHref();
+const hasGroupUrl = hasTestersGroupUrl();
+const groupEmail = communityConfig.testers.groupEmail;
+const feedbackHref = localizedPath(locale, '/feedback');
+const bodyParagraphs = t(locale, 'testers.body').split('\n\n');
+const privacyParagraphs = t(locale, 'testers.privacyBody').split('\n\n');
+---
+
+<div class="container section community-page" data-page="testers">
+  <header class="community-page__header">
+    <h1>{t(locale, 'testers.title')}</h1>
+    <p class="lead">{t(locale, 'testers.intro')}</p>
+  </header>
+
+  <div class="panel community-page__panel">
+    {bodyParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    <p>{t(locale, 'testers.voluntary')}</p>
+
+    <p class="community-page__cta">
+      <a
+        class="button button--primary"
+        href={joinHref}
+        target={hasGroupUrl ? '_blank' : undefined}
+        rel={hasGroupUrl ? 'noopener noreferrer' : undefined}
+        data-analytics-event="tester_group_open"
+        data-source="testers_page"
+        id="testers-join-cta"
+      >
+        {t(locale, 'testers.cta')}
+      </a>
+    </p>
+
+    {
+      !hasGroupUrl && (
+        <p class="muted" role="note">
+          {t(locale, 'testers.ctaMailtoHint')}
+        </p>
+      )
+    }
+
+    <p class="muted">
+      <strong>{t(locale, 'testers.groupEmailLabel')}:</strong>{' '}
+      <a href={`mailto:${groupEmail}`}>{groupEmail}</a>
+    </p>
+  </div>
+
+  <div class="panel community-page__panel">
+    <h2>{t(locale, 'testers.alreadyTesting')}</h2>
+    <p>
+      <a
+        href={feedbackHref}
+        data-analytics-event="tester_feedback_open"
+        data-source="testers_page"
+        id="testers-feedback-link"
+      >
+        {t(locale, 'testers.shareFeedback')}
+      </a>
+    </p>
+  </div>
+
+  <div class="panel community-page__panel">
+    <h2>{t(locale, 'testers.privacyTitle')}</h2>
+    {privacyParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+  </div>
+</div>

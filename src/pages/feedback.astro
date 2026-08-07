@@ -1,0 +1,16 @@
+---
+import FeedbackSection from '@/components/FeedbackSection.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/config/ui';
+
+const locale = 'en' as const;
+---
+
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'feedback.seoTitle')}
+  description={t(locale, 'feedback.seoDescription')}
+  canonicalPath="/feedback"
+>
+  <FeedbackSection locale={locale} />
+</BaseLayout>

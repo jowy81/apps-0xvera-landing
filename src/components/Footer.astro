@@ -9,6 +9,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const year = new Date().getFullYear();
+const home = localizedPath(locale, '/');
 ---
 
 <footer class="site-footer">
@@ -20,13 +21,19 @@ const year = new Date().getFullYear();
     </div>
     <nav aria-label="Footer">
       <ul>
+        <li><a href={`${home}#apps`}>{t(locale, 'nav.apps')}</a></li>
+        <li><a href={localizedPath(locale, '/feedback')}>{t(locale, 'nav.feedback')}</a></li>
+        <li><a href={localizedPath(locale, '/testers')}>{t(locale, 'nav.testers')}</a></li>
         <li><a href={localizedPath(locale, '/privacy')}>{t(locale, 'nav.privacy')}</a></li>
         <li><a href={localizedPath(locale, '/cookies')}>{t(locale, 'nav.cookies')}</a></li>
         <li>
-          <a href="#consent-banner" id="manage-analytics">{t(locale, 'consent.manage')}</a>
+          <a href={`mailto:${siteConfig.supportEmail}`}>{t(locale, 'nav.support')}</a>
         </li>
         <li>
-          <a href={`mailto:${siteConfig.supportEmail}`}>{siteConfig.supportEmail}</a>
+          <a href={`${home}#contact`}>{t(locale, 'nav.contact')}</a>
+        </li>
+        <li>
+          <a href="#consent-banner" id="manage-analytics">{t(locale, 'consent.manage')}</a>
         </li>
       </ul>
     </nav>

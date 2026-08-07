@@ -45,6 +45,10 @@ const apps = defineCollection({
     termsUrl: z.string().optional(),
     deleteAccountUrl: z.string().optional(),
     repositoryUrl: httpUrl.optional(),
+    /** Google Play closed testing / opt-in URL when available. */
+    testingUrl: httpUrl.optional(),
+    /** Show “Give feedback” on the app detail page. */
+    feedbackEnabled: z.boolean().default(true),
     featured: z.boolean(),
     order: z.number().int(),
     tags: z.array(z.string()),

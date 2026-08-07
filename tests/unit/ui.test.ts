@@ -11,4 +11,12 @@ describe('ui dictionary', () => {
     expect(t('es', 'status.available')).toBe('Disponible');
     expect(t('en', 'missing.key')).toBe('missing.key');
   });
+
+  it('exposes feedback and testers copy in English and Spanish', () => {
+    expect(t('en', 'feedback.title')).toBe('App Feedback');
+    expect(t('es', 'feedback.title')).toBe('Feedback de las apps');
+    expect(t('en', 'testers.title')).toBe('Join 0xVera Android Testers');
+    expect(t('es', 'testers.title')).toBe('Únete a 0xVera Android Testers');
+    expect(t('es', 'app.giveFeedback')).toBe('Enviar feedback');
+  });
 });

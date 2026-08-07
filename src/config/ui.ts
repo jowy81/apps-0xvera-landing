@@ -6,8 +6,11 @@ const en: Dictionary = {
   'nav.apps': 'Apps',
   'nav.about': 'About',
   'nav.contact': 'Contact',
+  'nav.feedback': 'Feedback',
+  'nav.testers': 'Android Testers',
   'nav.privacy': 'Privacy',
   'nav.cookies': 'Cookies',
+  'nav.support': 'Support',
   'nav.home': 'Home',
   'nav.skip': 'Skip to content',
   'nav.menu': 'Primary',
@@ -75,8 +78,44 @@ const en: Dictionary = {
   'app.comingSoonStore': 'Coming soon',
   'app.comingSoonAppStore': 'Coming soon on the App Store',
   'app.backToCatalog': 'Back to apps',
+  'app.giveFeedback': 'Give feedback',
+  'app.joinTesting': 'Join testing',
   'app.incompleteNotice':
     'Some details for this application are still being prepared and will be updated before publication.',
+  'feedback.seoTitle': 'App Feedback | 0xVera',
+  'feedback.seoDescription':
+    'Report bugs, suggest improvements and share feedback about 0xVera apps.',
+  'feedback.title': 'App Feedback',
+  'feedback.titleForApp': 'Feedback for {app}',
+  'feedback.intro':
+    'Help us improve 0xVera apps by reporting bugs, suggesting improvements or sharing your honest experience.',
+  'feedback.chooseLanguage': 'Choose your preferred language to open the feedback form.',
+  'feedback.optionEn': 'English',
+  'feedback.optionEs': 'Español',
+  'feedback.scope':
+    'Your feedback can include bug reports, usability issues, feature requests, performance problems, privacy or security concerns, design feedback and general suggestions.',
+  'feedback.warning':
+    'Please do not submit passwords, private keys, seed phrases, identity documents, payment information or other sensitive information.',
+  'feedback.support': 'For support, contact {email}.',
+  'testers.seoTitle': 'Android Testers | 0xVera',
+  'testers.seoDescription':
+    'Join the 0xVera Android testing community and get early access to selected apps.',
+  'testers.title': 'Join 0xVera Android Testers',
+  'testers.intro':
+    'Get early access to selected 0xVera Android apps and help us improve them before public release.',
+  'testers.body':
+    'Joining the tester community gives you access to invitations for upcoming Android tests.\n\nEach app has its own Google Play testing programme. Being a member of this group does not automatically enrol you in every test — you choose which apps you want to try.',
+  'testers.voluntary':
+    'Participation is voluntary. You can leave the group at any time. Honest, detailed feedback is always appreciated.',
+  'testers.cta': 'Join the tester community',
+  'testers.ctaMailtoHint':
+    'Open your email client to request access via the Google Group address below.',
+  'testers.groupEmailLabel': 'Group email',
+  'testers.alreadyTesting': 'Already testing an app?',
+  'testers.shareFeedback': 'Share your feedback',
+  'testers.privacyTitle': 'Privacy',
+  'testers.privacyBody':
+    'Group membership is managed through Google Groups. Google may process data associated with your Google account under its own policies. 0xVera does not need to publish the member list. You can leave the group whenever you want.\n\nFeedback submitted through the forms is stored with Google Forms/Sheets. Do not send sensitive data.',
   'footer.identity': '0xVera',
   'footer.tagline': 'Independent applications with a focus on utility and privacy.',
   'footer.rights': 'All rights reserved.',
@@ -102,8 +141,11 @@ const es: Dictionary = {
   ...en,
   'nav.about': 'Acerca de',
   'nav.contact': 'Contacto',
+  'nav.feedback': 'Feedback',
+  'nav.testers': 'Android Testers',
   'nav.privacy': 'Privacidad',
   'nav.cookies': 'Cookies',
+  'nav.support': 'Soporte',
   'nav.home': 'Inicio',
   'nav.skip': 'Saltar al contenido',
   'nav.menu': 'Principal',
@@ -159,8 +201,44 @@ const es: Dictionary = {
   'app.comingSoonStore': 'Próximamente',
   'app.comingSoonAppStore': 'Próximamente en App Store',
   'app.backToCatalog': 'Volver a las apps',
+  'app.giveFeedback': 'Enviar feedback',
+  'app.joinTesting': 'Unirse al testing',
   'app.incompleteNotice':
     'Algunos detalles de esta aplicación todavía se están preparando y se actualizarán antes de su publicación.',
+  'feedback.seoTitle': 'Feedback de las apps | 0xVera',
+  'feedback.seoDescription':
+    'Informa de errores, sugiere mejoras y comparte tu opinión sobre las apps de 0xVera.',
+  'feedback.title': 'Feedback de las apps',
+  'feedback.titleForApp': 'Feedback sobre {app}',
+  'feedback.intro':
+    'Ayúdanos a mejorar las apps de 0xVera informando de errores, sugiriendo mejoras o compartiendo tu experiencia sincera.',
+  'feedback.chooseLanguage': 'Elige el idioma del formulario de feedback.',
+  'feedback.optionEn': 'English',
+  'feedback.optionEs': 'Español',
+  'feedback.scope':
+    'Tu feedback puede incluir informes de errores, problemas de usabilidad, peticiones de funciones, rendimiento, privacidad o seguridad, diseño y sugerencias generales.',
+  'feedback.warning':
+    'No envíes contraseñas, claves privadas, frases semilla, documentos de identidad, información de pago ni otros datos sensibles.',
+  'feedback.support': 'Para soporte, escribe a {email}.',
+  'testers.seoTitle': 'Android Testers | 0xVera',
+  'testers.seoDescription':
+    'Únete a la comunidad de testing Android de 0xVera y prueba apps seleccionadas antes del lanzamiento.',
+  'testers.title': 'Únete a 0xVera Android Testers',
+  'testers.intro':
+    'Consigue acceso anticipado a algunas apps Android de 0xVera y ayúdanos a mejorarlas antes del lanzamiento público.',
+  'testers.body':
+    'Al unirte a la comunidad de testers podrás recibir invitaciones a próximas pruebas en Android.\n\nCada app tiene su propio programa de testing en Google Play. Formar parte de este grupo no te inscribe automáticamente en todas las pruebas: tú decides en cuáles quieres participar.',
+  'testers.voluntary':
+    'La participación es voluntaria. Puedes abandonar el grupo en cualquier momento. Agradecemos el feedback honesto y detallado.',
+  'testers.cta': 'Unirse a la comunidad de testers',
+  'testers.ctaMailtoHint':
+    'Abre tu cliente de correo para solicitar acceso con la dirección del Google Group indicada abajo.',
+  'testers.groupEmailLabel': 'Email del grupo',
+  'testers.alreadyTesting': '¿Ya estás probando una app?',
+  'testers.shareFeedback': 'Comparte tu feedback',
+  'testers.privacyTitle': 'Privacidad',
+  'testers.privacyBody':
+    'La membresía del grupo se gestiona mediante Google Groups. Google puede tratar los datos asociados a tu cuenta de Google según sus propias políticas. 0xVera no necesita publicar la lista de miembros. Puedes abandonar el grupo cuando quieras.\n\nEl feedback enviado por los formularios se almacena con Google Forms/Sheets. No envíes datos sensibles.',
   'footer.tagline': 'Aplicaciones independientes con foco en utilidad y privacidad.',
   'footer.rights': 'Todos los derechos reservados.',
   'consent.title': 'Preferencia de analítica',

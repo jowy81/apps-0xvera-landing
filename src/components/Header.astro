@@ -11,6 +11,7 @@ interface Props {
 
 const { locale } = Astro.props;
 const home = localizedPath(locale, '/');
+const feedbackHref = localizedPath(locale, '/feedback');
 ---
 
 <a class="skip-link" href="#main">{t(locale, 'nav.skip')}</a>
@@ -20,6 +21,7 @@ const home = localizedPath(locale, '/');
     <nav class="nav" aria-label={t(locale, 'nav.menu')}>
       <ul class="nav__links">
         <li><a href={`${home}#apps`}>{t(locale, 'nav.apps')}</a></li>
+        <li><a href={feedbackHref}>{t(locale, 'nav.feedback')}</a></li>
         <li><a href={`${home}#about`}>{t(locale, 'nav.about')}</a></li>
         <li><a href={`${home}#contact`}>{t(locale, 'nav.contact')}</a></li>
       </ul>

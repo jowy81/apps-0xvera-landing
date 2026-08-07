@@ -1,5 +1,6 @@
 ---
 import { render } from 'astro:content';
+import { feedbackPageHref } from '@/config/community';
 import type { Locale } from '@/config/site';
 import { t } from '@/config/ui';
 import type { AppEntry } from '@/lib/apps';
@@ -18,6 +19,9 @@ const { Content } = await render(app);
 const privacyHref = resolveAppLink(data.privacyUrl, locale);
 const supportHref = resolveAppLink(data.supportUrl, locale);
 const catalogHref = localizedPath(locale, '/');
+const feedbackHref = feedbackPageHref(locale, data.slug);
+const showFeedback = data.feedbackEnabled !== false;
+const testingUrl = data.testingUrl;
 ---
 
 <article>
@@ -240,6 +244,35 @@ const catalogHref = localizedPath(locale, '/');
             {t(locale, 'app.support')}
           </a>
         </li>
+        {
+          showFeedback && (
+            <li>
+              <a
+                href={feedbackHref}
+                data-analytics-event="feedback_open"
+                data-app={data.slug}
+                data-source="app_detail"
+              >
+                {t(locale, 'app.giveFeedback')}
+              </a>
+            </li>
+          )
+        }
+        {
+          testingUrl && (
+            <li>
+              <a
+                href={testingUrl}
+                rel="noopener noreferrer"
+                target="_blank"
+                data-analytics-event="outbound_link_click"
+                data-app-slug={data.slug}
+              >
+                {t(locale, 'app.joinTesting')}
+              </a>
+            </li>
+          )
+        }
         {
           data.termsUrl && (
             <li>

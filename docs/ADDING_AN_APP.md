@@ -45,3 +45,6 @@ Invalid statuses or missing required fields fail the build.
 - For external privacy policies, set an absolute `privacyUrl`.
 - Set `order` to control catalog sorting.
 - Set `featured` for future highlighting logic.
+- `feedbackEnabled` defaults to `true` (detail page “Give feedback” link).
+- Set `testingUrl` only when a real Google Play closed-testing URL exists.
+- To honour `/feedback?app=<slug>`, also register the slug in `src/config/community.ts` (`feedbackAppSlugs`).

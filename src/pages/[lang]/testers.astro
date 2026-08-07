@@ -1,0 +1,27 @@
+---
+import TestersSection from '@/components/TestersSection.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { isLocale, prefixedLocales, type Locale } from '@/config/site';
+import { t } from '@/config/ui';
+import { localizedPath } from '@/lib/paths';
+
+export function getStaticPaths() {
+  return prefixedLocales.map((lang) => ({ params: { lang } }));
+}
+
+const langParam = Astro.params.lang;
+if (!langParam || !isLocale(langParam)) {
+  return Astro.redirect('/testers');
+}
+
+const locale = langParam as Locale;
+---
+
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'testers.seoTitle')}
+  description={t(locale, 'testers.seoDescription')}
+  canonicalPath={localizedPath(locale, '/testers')}
+>
+  <TestersSection locale={locale} />
+</BaseLayout>

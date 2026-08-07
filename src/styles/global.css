@@ -637,6 +637,51 @@ html[data-theme='dark'] .theme-toggle__icon--sun {
   border: 0;
 }
 
+.community-page__header {
+  max-width: 40rem;
+  margin-bottom: var(--space-5);
+}
+
+.community-page__header .lead {
+  font-size: 1.1rem;
+  color: var(--text-secondary);
+}
+
+.community-page__panel + .community-page__panel {
+  margin-top: var(--space-4);
+}
+
+.community-page__cta {
+  margin: var(--space-4) 0;
+}
+
+a.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  text-decoration: none;
+}
+
+.choice-grid {
+  display: grid;
+  gap: var(--space-3);
+  grid-template-columns: repeat(auto-fit, minmax(12rem, 1fr));
+  max-width: 36rem;
+  margin: 0 0 var(--space-5);
+}
+
+.choice-card {
+  min-height: 3.5rem;
+  justify-content: flex-start;
+  padding-inline: var(--space-4);
+}
+
+.choice-card__flag {
+  font-size: 1.25rem;
+  line-height: 1;
+}
+
 @media (max-width: 720px) {
   .detail-hero,
   .detail-grid,

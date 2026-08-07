@@ -1,0 +1,111 @@
+---
+import {
+  communityConfig,
+  feedbackAppDisplayNames,
+  feedbackAppSlugs,
+  getFeedbackFormUrl,
+} from '@/config/community';
+import type { Locale } from '@/config/site';
+import { t } from '@/config/ui';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const supportEmail = communityConfig.contact.supportEmail;
+const formEn = getFeedbackFormUrl('en');
+const formEs = getFeedbackFormUrl('es');
+const titleDefault = t(locale, 'feedback.title');
+const titleTemplate = t(locale, 'feedback.titleForApp');
+const supportParts = t(locale, 'feedback.support').split('{email}');
+const appNamesJson = JSON.stringify(feedbackAppDisplayNames);
+const knownSlugsJson = JSON.stringify([...feedbackAppSlugs]);
+---
+
+<div class="container section community-page" data-page="feedback">
+  <header class="community-page__header">
+    <h1 id="feedback-title" data-title-default={titleDefault} data-title-template={titleTemplate}>
+      {titleDefault}
+    </h1>
+    <p class="lead">{t(locale, 'feedback.intro')}</p>
+    <p class="muted">{t(locale, 'feedback.chooseLanguage')}</p>
+  </header>
+
+  <div class="choice-grid" role="list">
+    <a
+      class="choice-card button button--secondary"
+      role="listitem"
+      href={formEn}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-analytics-event="feedback_language_selected"
+      data-analytics-event-secondary="feedback_open"
+      data-language="en"
+      data-source="feedback_page"
+      data-app=""
+      id="feedback-link-en"
+    >
+      <span class="choice-card__flag" aria-hidden="true">🇬🇧</span>
+      <span>{t(locale, 'feedback.optionEn')}</span>
+    </a>
+    <a
+      class="choice-card button button--secondary"
+      role="listitem"
+      href={formEs}
+      target="_blank"
+      rel="noopener noreferrer"
+      data-analytics-event="feedback_language_selected"
+      data-analytics-event-secondary="feedback_open"
+      data-language="es"
+      data-source="feedback_page"
+      data-app=""
+      id="feedback-link-es"
+    >
+      <span class="choice-card__flag" aria-hidden="true">🇪🇸</span>
+      <span>{t(locale, 'feedback.optionEs')}</span>
+    </a>
+  </div>
+
+  <div class="panel community-page__panel">
+    <p>{t(locale, 'feedback.scope')}</p>
+    <p class="notice" role="note">{t(locale, 'feedback.warning')}</p>
+    <p class="muted">
+      {supportParts[0]}
+      <a href={`mailto:${supportEmail}`}>{supportEmail}</a>
+      {supportParts[1] || ''}
+    </p>
+  </div>
+</div>
+
+<script is:inline define:vars={{ appNamesJson, knownSlugsJson }}>
+  const titleEl = document.getElementById('feedback-title');
+  if (titleEl) {
+    const params = new URLSearchParams(window.location.search);
+    const app = params.get('app');
+    let known = [];
+    let names = {};
+    try {
+      known = JSON.parse(knownSlugsJson);
+      names = JSON.parse(appNamesJson);
+    } catch {
+      known = [];
+    }
+
+    const valid = Boolean(app && known.includes(app));
+    const appName = valid && app ? names[app] || app : '';
+
+    if (valid && appName) {
+      const template = titleEl.getAttribute('data-title-template') || 'Feedback for {app}';
+      titleEl.textContent = template.replace('{app}', appName);
+    }
+
+    document.querySelectorAll('#feedback-link-en, #feedback-link-es').forEach((link) => {
+      if (valid && app) {
+        link.setAttribute('data-app', app);
+      } else {
+        link.setAttribute('data-app', '');
+      }
+    });
+  }
+</script>

@@ -1,0 +1,27 @@
+---
+import FeedbackSection from '@/components/FeedbackSection.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { isLocale, prefixedLocales, type Locale } from '@/config/site';
+import { t } from '@/config/ui';
+import { localizedPath } from '@/lib/paths';
+
+export function getStaticPaths() {
+  return prefixedLocales.map((lang) => ({ params: { lang } }));
+}
+
+const langParam = Astro.params.lang;
+if (!langParam || !isLocale(langParam)) {
+  return Astro.redirect('/feedback');
+}
+
+const locale = langParam as Locale;
+---
+
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'feedback.seoTitle')}
+  description={t(locale, 'feedback.seoDescription')}
+  canonicalPath={localizedPath(locale, '/feedback')}
+>
+  <FeedbackSection locale={locale} />
+</BaseLayout>

@@ -66,6 +66,9 @@ pnpm test:e2e
 | `PUBLIC_SUPPORT_EMAIL` | Optional | Defaults to `support@0xvera.com` |
 | `PUBLIC_CONTACT_EMAIL` | Optional | Defaults to `hello@0xvera.com` |
 | `PUBLIC_GA_MEASUREMENT_ID` | Optional | GA4 ID; site works without it |
+| `PUBLIC_FEEDBACK_FORM_EN_URL` | Optional | English Google Form (default in config) |
+| `PUBLIC_FEEDBACK_FORM_ES_URL` | Optional | Spanish Google Form (default in config) |
+| `PUBLIC_ANDROID_TESTERS_GROUP_URL` | Optional | Google Groups join URL for Android testers |
 
 ## Structure
 
@@ -91,11 +94,18 @@ docs/
 
 See [docs/ADDING_AN_APP.md](docs/ADDING_AN_APP.md). Content lives in `src/content/apps/` — no component edits required for new catalog entries.
 
+## Feedback and Android Testers
+
+- `/feedback` — language picker for EN/ES Google Forms (`?app=<slug>` optional)
+- `/testers` — join **0xVera Android Testers** (`0xvera-android-testers@googlegroups.com`)
+
+Config: `src/config/community.ts`. Details: [docs/FEEDBACK_AND_TESTING.md](docs/FEEDBACK_AND_TESTING.md).
+
 ## App status (initial)
 
 | App | Status | Notes |
 | --- | --- | --- |
-| CardQR | Coming soon | Privacy draft pending import from Android repo |
+| CardQR | Coming soon | Privacy published at `/cardqr/privacy` |
 | MeteOpen | Coming soon | Placeholders for description/privacy/assets |
 | Cupid's Oracle | Coming soon | External privacy at cupidsoracle.com |
 
@@ -107,6 +117,7 @@ Primary: **Cloudflare Pages** (static). See [docs/DEPLOYMENT.md](docs/DEPLOYMENT
 
 - [Architecture](docs/ARCHITECTURE.md)
 - [Content model](docs/CONTENT_MODEL.md)
+- [Feedback and testing](docs/FEEDBACK_AND_TESTING.md)
 - [Analytics](docs/ANALYTICS.md)
 - [Assets required](docs/ASSETS_REQUIRED.md)
 - [Legal content](docs/LEGAL_CONTENT.md)
@@ -114,9 +125,7 @@ Primary: **Cloudflare Pages** (static). See [docs/DEPLOYMENT.md](docs/DEPLOYMENT
 
 ## Pending before production launch
 
-- Import final CardQR privacy policy (`draft: false`)
 - Complete MeteOpen and Cupid's Oracle product fields
-- Replace icon/screenshot placeholders
 - Confirm hosting/legal placeholders in portal privacy
 - Set `PUBLIC_GA_MEASUREMENT_ID` only when ready
 - Publish GitHub repository and attach custom domain

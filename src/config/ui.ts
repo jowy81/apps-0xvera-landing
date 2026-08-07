@@ -92,10 +92,13 @@ const en: Dictionary = {
   'feedback.intro':
     'Help us improve 0xVera apps by reporting bugs, suggesting improvements or sharing your honest experience.',
   'feedback.chooseLanguage': 'Choose your preferred language to open the feedback form.',
+  'feedback.formsLanguages': 'Feedback forms are currently available in English and Spanish.',
   'feedback.optionEn': 'English',
   'feedback.optionEs': 'Español',
   'feedback.scope':
     'Your feedback can include bug reports, usability issues, feature requests, performance problems, privacy or security concerns, design feedback and general suggestions.',
+  'feedback.accountNote':
+    'Feedback forms require a Google account and record the verified email address associated with the submission. This is used to identify tester feedback, prevent abuse and allow follow-up when necessary.',
   'feedback.warning':
     'Please do not submit passwords, private keys, seed phrases, identity documents, payment information or other sensitive information.',
   'feedback.support': 'For support, contact {email}.',
@@ -107,6 +110,8 @@ const en: Dictionary = {
     'Get early access to selected 0xVera Android apps and help us improve them before public release.',
   'testers.body':
     'Joining the tester community gives you access to invitations for upcoming Android tests.\n\nEach app has its own Google Play testing programme. Being a member of this group does not automatically enrol you in every test — you choose which apps you want to try.',
+  'testers.googleAccountRequired':
+    'A Google account is required to join Android closed tests through Google Play.',
   'testers.voluntary':
     'Participation is voluntary. You can leave the group at any time. Honest, detailed feedback is always appreciated.',
   'testers.cta': 'Join the tester community',
@@ -117,7 +122,7 @@ const en: Dictionary = {
   'testers.shareFeedback': 'Share your feedback',
   'testers.privacyTitle': 'Privacy',
   'testers.privacyBody':
-    'Group membership is managed through Google Groups. Google may process data associated with your Google account under its own policies. 0xVera does not need to publish the member list. You can leave the group whenever you want.\n\nFeedback submitted through the forms is stored with Google Forms/Sheets. Do not send sensitive data.',
+    'Group membership is managed through Google Groups. Google may process data associated with your Google account under its own policies. 0xVera does not need to publish the member list. You can leave the group whenever you want.\n\nFeedback forms require a Google account and record the verified email address associated with the submission. This is used to identify tester feedback, prevent abuse and allow follow-up when necessary. Submissions are stored with Google Forms/Sheets. Do not send sensitive data.',
   'footer.identity': '0xVera',
   'footer.tagline': 'Independent applications with a focus on utility and privacy.',
   'footer.rights': 'All rights reserved.',
@@ -217,10 +222,14 @@ const es: Dictionary = {
   'feedback.intro':
     'Ayúdanos a mejorar las apps de 0xVera informando de errores, sugiriendo mejoras o compartiendo tu experiencia sincera.',
   'feedback.chooseLanguage': 'Elige el idioma del formulario de feedback.',
+  'feedback.formsLanguages':
+    'Los formularios de feedback están disponibles por ahora en inglés y español.',
   'feedback.optionEn': 'English',
   'feedback.optionEs': 'Español',
   'feedback.scope':
     'Tu feedback puede incluir informes de errores, problemas de usabilidad, peticiones de funciones, rendimiento, privacidad o seguridad, diseño y sugerencias generales.',
+  'feedback.accountNote':
+    'Los formularios de feedback requieren una cuenta de Google y registran la dirección de correo verificada asociada al envío. Se usa para identificar el feedback de testers, prevenir abusos y poder hacer seguimiento cuando haga falta.',
   'feedback.warning':
     'No envíes contraseñas, claves privadas, frases semilla, documentos de identidad, información de pago ni otros datos sensibles.',
   'feedback.support': 'Para soporte, escribe a {email}.',
@@ -232,6 +241,8 @@ const es: Dictionary = {
     'Consigue acceso anticipado a algunas apps Android de 0xVera y ayúdanos a mejorarlas antes del lanzamiento público.',
   'testers.body':
     'Al unirte a la comunidad de testers podrás recibir invitaciones a próximas pruebas en Android.\n\nCada app tiene su propio programa de testing en Google Play. Formar parte de este grupo no te inscribe automáticamente en todas las pruebas: tú decides en cuáles quieres participar.',
+  'testers.googleAccountRequired':
+    'Se necesita una cuenta de Google para unirse a las pruebas cerradas de Android a través de Google Play.',
   'testers.voluntary':
     'La participación es voluntaria. Puedes abandonar el grupo en cualquier momento. Agradecemos el feedback honesto y detallado.',
   'testers.cta': 'Unirse a la comunidad de testers',
@@ -242,7 +253,7 @@ const es: Dictionary = {
   'testers.shareFeedback': 'Comparte tu feedback',
   'testers.privacyTitle': 'Privacidad',
   'testers.privacyBody':
-    'La membresía del grupo se gestiona mediante Google Groups. Google puede tratar los datos asociados a tu cuenta de Google según sus propias políticas. 0xVera no necesita publicar la lista de miembros. Puedes abandonar el grupo cuando quieras.\n\nEl feedback enviado por los formularios se almacena con Google Forms/Sheets. No envíes datos sensibles.',
+    'La membresía del grupo se gestiona mediante Google Groups. Google puede tratar los datos asociados a tu cuenta de Google según sus propias políticas. 0xVera no necesita publicar la lista de miembros. Puedes abandonar el grupo cuando quieras.\n\nLos formularios de feedback requieren una cuenta de Google y registran la dirección de correo verificada asociada al envío. Se usa para identificar el feedback de testers, prevenir abusos y poder hacer seguimiento cuando haga falta. Las respuestas se almacenan con Google Forms/Sheets. No envíes datos sensibles.',
   'footer.tagline': 'Aplicaciones independientes con foco en utilidad y privacidad.',
   'footer.rights': 'Todos los derechos reservados.',
   'consent.title': 'Preferencia de analítica',
@@ -297,6 +308,14 @@ const ca: Dictionary = {
   'status.in-development': 'En desenvolupament',
   'status.unavailable': 'No disponible',
   'app.joinBetaTesters': 'Uneix-te als beta testers d’Android',
+  'feedback.formsLanguages':
+    'Els formularis de feedback estan disponibles de moment en anglès i espanyol.',
+  'feedback.accountNote':
+    'Els formularis de feedback requereixen un compte de Google i registren l’adreça de correu verificada associada a l’enviament. S’utilitza per identificar el feedback dels testers, prevenir abusos i fer seguiment quan calgui.',
+  'testers.googleAccountRequired':
+    'Cal un compte de Google per unir-se a les proves tancades d’Android a través de Google Play.',
+  'testers.privacyBody':
+    'La pertinença al grup es gestiona amb Google Groups. Google pot tractar les dades associades al teu compte de Google segons les seves pròpies polítiques. 0xVera no necessita publicar la llista de membres. Pots deixar el grup quan vulguis.\n\nEls formularis de feedback requereixen un compte de Google i registren l’adreça de correu verificada associada a l’enviament. S’utilitza per identificar el feedback dels testers, prevenir abusos i fer seguiment quan calgui. Les respostes s’emmagatzemen amb Google Forms/Sheets. No enviïs dades sensibles.',
   'price.free': 'Gratuïta',
   'price.paid': 'De pagament',
   'app.developer': 'Desenvolupador',
@@ -382,6 +401,14 @@ const fr: Dictionary = {
   'status.in-development': 'En développement',
   'status.unavailable': 'Indisponible',
   'app.joinBetaTesters': 'Rejoindre les bêta testeurs Android',
+  'feedback.formsLanguages':
+    'Les formulaires de feedback sont pour l’instant disponibles en anglais et en espagnol.',
+  'feedback.accountNote':
+    'Les formulaires de feedback nécessitent un compte Google et enregistrent l’adresse e-mail vérifiée associée à l’envoi. Cela sert à identifier les retours des testeurs, prévenir les abus et assurer un suivi si nécessaire.',
+  'testers.googleAccountRequired':
+    'Un compte Google est requis pour rejoindre les tests Android fermés via Google Play.',
+  'testers.privacyBody':
+    'L’adhésion au groupe est gérée via Google Groups. Google peut traiter les données associées à votre compte Google selon ses propres politiques. 0xVera n’a pas besoin de publier la liste des membres. Vous pouvez quitter le groupe quand vous le souhaitez.\n\nLes formulaires de feedback nécessitent un compte Google et enregistrent l’adresse e-mail vérifiée associée à l’envoi. Cela sert à identifier les retours des testeurs, prévenir les abus et assurer un suivi si nécessaire. Les réponses sont stockées avec Google Forms/Sheets. N’envoyez pas de données sensibles.',
   'price.free': 'Gratuit',
   'price.paid': 'Payant',
   'app.developer': 'Développeur',
@@ -467,6 +494,14 @@ const de: Dictionary = {
   'status.in-development': 'In Entwicklung',
   'status.unavailable': 'Nicht verfügbar',
   'app.joinBetaTesters': 'Android-Beta-Testern beitreten',
+  'feedback.formsLanguages':
+    'Feedback-Formulare sind derzeit auf Englisch und Spanisch verfügbar.',
+  'feedback.accountNote':
+    'Feedback-Formulare erfordern ein Google-Konto und speichern die verifizierte E-Mail-Adresse der Einsendung. Das dient dazu, Tester-Feedback zuzuordnen, Missbrauch zu verhindern und bei Bedarf nachzufassen.',
+  'testers.googleAccountRequired':
+    'Für geschlossene Android-Tests über Google Play ist ein Google-Konto erforderlich.',
+  'testers.privacyBody':
+    'Die Gruppenmitgliedschaft wird über Google Groups verwaltet. Google kann Daten Ihres Google-Kontos gemäß den eigenen Richtlinien verarbeiten. 0xVera muss die Mitgliederliste nicht veröffentlichen. Sie können die Gruppe jederzeit verlassen.\n\nFeedback-Formulare erfordern ein Google-Konto und speichern die verifizierte E-Mail-Adresse der Einsendung. Das dient dazu, Tester-Feedback zuzuordnen, Missbrauch zu verhindern und bei Bedarf nachzufassen. Einsendungen werden mit Google Forms/Sheets gespeichert. Senden Sie keine sensiblen Daten.',
   'price.free': 'Kostenlos',
   'price.paid': 'Kostenpflichtig',
   'app.developer': 'Entwickler',
@@ -552,6 +587,14 @@ const it: Dictionary = {
   'status.in-development': 'In sviluppo',
   'status.unavailable': 'Non disponibile',
   'app.joinBetaTesters': 'Unisciti ai beta tester Android',
+  'feedback.formsLanguages':
+    'I moduli di feedback sono al momento disponibili in inglese e spagnolo.',
+  'feedback.accountNote':
+    'I moduli di feedback richiedono un account Google e registrano l’indirizzo email verificato associato all’invio. Serve a identificare il feedback dei tester, prevenire abusi e consentire un follow-up quando necessario.',
+  'testers.googleAccountRequired':
+    'È necessario un account Google per partecipare ai test Android chiusi tramite Google Play.',
+  'testers.privacyBody':
+    'L’iscrizione al gruppo è gestita tramite Google Groups. Google può trattare i dati associati al tuo account Google secondo le proprie policy. 0xVera non ha bisogno di pubblicare l’elenco dei membri. Puoi lasciare il gruppo in qualsiasi momento.\n\nI moduli di feedback richiedono un account Google e registrano l’indirizzo email verificato associato all’invio. Serve a identificare il feedback dei tester, prevenire abusi e consentire un follow-up quando necessario. Le risposte sono archiviate con Google Forms/Sheets. Non inviare dati sensibili.',
   'price.free': 'Gratuita',
   'price.paid': 'A pagamento',
   'app.developer': 'Sviluppatore',

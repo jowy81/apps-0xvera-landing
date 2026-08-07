@@ -30,6 +30,7 @@ const knownSlugsJson = JSON.stringify([...feedbackAppSlugs]);
     </h1>
     <p class="lead">{t(locale, 'feedback.intro')}</p>
     <p class="muted">{t(locale, 'feedback.chooseLanguage')}</p>
+    <p class="muted">{t(locale, 'feedback.formsLanguages')}</p>
   </header>
 
   <div class="choice-grid" role="list">
@@ -67,6 +68,7 @@ const knownSlugsJson = JSON.stringify([...feedbackAppSlugs]);
 
   <div class="panel community-page__panel">
     <p>{t(locale, 'feedback.scope')}</p>
+    <p>{t(locale, 'feedback.accountNote')}</p>
     <p class="notice" role="note">{t(locale, 'feedback.warning')}</p>
     <p class="muted">
       {supportParts[0]}

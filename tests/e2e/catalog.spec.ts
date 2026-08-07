@@ -71,6 +71,10 @@ test.describe('catalog site', () => {
     await expect(en).toHaveAttribute('rel', 'noopener noreferrer');
     await expect(es).toHaveAttribute('rel', 'noopener noreferrer');
     await expect(en).toHaveAttribute('target', '_blank');
+    await expect(
+      page.getByText('Feedback forms are currently available in English and Spanish.'),
+    ).toBeVisible();
+    await expect(page.getByText(/verified email address/i)).toBeVisible();
   });
 
   test('feedback app query shows CardQR and ignores invalid apps', async ({ page }) => {
@@ -103,7 +107,13 @@ test.describe('catalog site', () => {
     await expect(cta).toHaveAttribute('target', '_blank');
 
     await expect(page.locator('#testers-feedback-link')).toHaveAttribute('href', '/feedback');
+    await expect(
+      page.getByText(
+        'A Google account is required to join Android closed tests through Google Play.',
+      ),
+    ).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Privacy' })).toBeVisible();
+    await expect(page.getByText(/verified email address/i)).toBeVisible();
   });
 
   test('app detail exposes give feedback link', async ({ page }) => {

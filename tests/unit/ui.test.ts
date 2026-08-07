@@ -18,5 +18,8 @@ describe('ui dictionary', () => {
     expect(t('en', 'testers.title')).toBe('Join 0xVera Android Testers');
     expect(t('es', 'testers.title')).toBe('Únete a 0xVera Android Testers');
     expect(t('es', 'app.giveFeedback')).toBe('Enviar feedback');
+    expect(t('fr', 'feedback.formsLanguages')).toMatch(/anglais|espagnol/i);
+    expect(t('en', 'testers.googleAccountRequired')).toMatch(/Google account/i);
+    expect(t('en', 'feedback.accountNote')).toMatch(/verified email/i);
   });
 });

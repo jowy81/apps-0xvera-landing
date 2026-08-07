@@ -29,6 +29,7 @@ const privacyParagraphs = t(locale, 'testers.privacyBody').split('\n\n');
 
   <div class="panel community-page__panel">
     {bodyParagraphs.map((paragraph) => <p>{paragraph}</p>)}
+    <p>{t(locale, 'testers.googleAccountRequired')}</p>
     <p>{t(locale, 'testers.voluntary')}</p>
 
     <p class="community-page__cta">

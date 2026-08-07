@@ -95,7 +95,13 @@ feedbackEnabled: true
 - URL: https://groups.google.com/g/0xvera-android-testers
 - Email: `0xvera-android-testers@googlegroups.com`
 
-Membership is permanent community access, not automatic enrolment in every app test.
+Membership is permanent community access, not automatic enrolment in every app test.  
+A Google account is required for Google Play closed testing opt-in.
+
+## Feedback form languages and identity
+
+- Site UI is localized (en/es/ca/fr/de/it); feedback **forms** are EN/ES only for now.
+- Forms require a Google account and record the verified submitter email (abuse prevention / follow-up).
 
 ## Adding a new app to feedback
 

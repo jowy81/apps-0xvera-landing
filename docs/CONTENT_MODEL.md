@@ -14,6 +14,7 @@ Required fields include `slug`, `locale`, `name`, `developer`, `status`, `platfo
 
 - `available`
 - `coming-soon`
+- `beta-testing`
 - `in-development`
 - `unavailable`
 

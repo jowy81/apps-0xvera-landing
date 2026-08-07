@@ -22,6 +22,8 @@ const catalogHref = localizedPath(locale, '/');
 const feedbackHref = feedbackPageHref(locale, data.slug);
 const showFeedback = data.feedbackEnabled !== false;
 const testingUrl = data.testingUrl;
+const testersHref = localizedPath(locale, '/testers');
+const showBetaTestersLink = data.status === 'beta-testing' && !data.playStoreUrl;
 ---
 
 <article>
@@ -191,6 +193,12 @@ const testingUrl = data.testingUrl;
                 data-app-slug={data.slug}
               >
                 {t(locale, 'app.playStore')}
+              </a>
+            </li>
+          ) : showBetaTestersLink && data.platforms.includes('android') ? (
+            <li>
+              <a href={testersHref} data-analytics-event="tester_group_open" data-source="app_detail">
+                {t(locale, 'app.joinBetaTesters')}
               </a>
             </li>
           ) : data.platforms.includes('android') ? (

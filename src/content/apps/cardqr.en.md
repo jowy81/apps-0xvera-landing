@@ -3,7 +3,7 @@ slug: cardqr
 locale: en
 name: CardQR
 developer: 0xVera
-status: coming-soon
+status: beta-testing
 platforms:
   - android
   - ios
@@ -36,7 +36,7 @@ permissions:
   - Camera permission to capture or scan QR codes
   - Data stored locally on the device
 seoTitle: CardQR — Offline cards and QR codes
-seoDescription: CardQR lets users create, organise, display, import, export and share cards and QR codes. Offline, no account, no ads, no analytics. Coming soon on Google Play and the App Store.
+seoDescription: CardQR lets users create, organise, display, import, export and share cards and QR codes. Offline, no account, no ads, no analytics. Android beta testers open; App Store coming later.
 incomplete: false
 ---
 

@@ -3,7 +3,7 @@ slug: cardqr
 locale: de
 name: CardQR
 developer: 0xVera
-status: coming-soon
+status: beta-testing
 platforms:
   - android
   - ios

@@ -2,7 +2,13 @@ import { defineCollection } from 'astro:content';
 import { glob } from 'astro/loaders';
 import { z } from 'astro/zod';
 
-const appStatus = z.enum(['available', 'coming-soon', 'in-development', 'unavailable']);
+const appStatus = z.enum([
+  'available',
+  'coming-soon',
+  'beta-testing',
+  'in-development',
+  'unavailable',
+]);
 const platform = z.enum(['android', 'ios', 'web']);
 const price = z.enum(['free', 'paid', 'freemium']);
 const locale = z.enum(['en', 'es', 'ca', 'fr', 'de', 'it']);

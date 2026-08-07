@@ -12,7 +12,11 @@ test.describe('catalog site', () => {
   test('individual app routes work', async ({ page }) => {
     await page.goto('/cardqr');
     await expect(page.getByRole('heading', { level: 1, name: 'CardQR' })).toBeVisible();
-    await expect(page.getByText('Coming soon on Google Play')).toBeVisible();
+    await expect(page.locator('.badge--beta-testing')).toHaveText(/Beta testers open/);
+    await expect(page.getByRole('link', { name: 'Join Android beta testers' })).toHaveAttribute(
+      'href',
+      '/testers',
+    );
   });
 
   test('language dropdown navigates between locales', async ({ page }) => {
@@ -127,10 +131,10 @@ test.describe('catalog site', () => {
     await context.close();
   });
 
-  test('coming soon store link is not an active Play link', async ({ page }) => {
+  test('CardQR has no active Play Store link while in beta testing', async ({ page }) => {
     await page.goto('/cardqr');
     await expect(page.getByRole('link', { name: 'Google Play' })).toHaveCount(0);
-    await expect(page.getByText('Coming soon on Google Play')).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Join Android beta testers' })).toBeVisible();
   });
 
   test('analytics does not load before consent and respects reject', async ({ page }) => {

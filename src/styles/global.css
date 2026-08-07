@@ -170,6 +170,8 @@ a:hover {
 .lang-dropdown__select {
   appearance: none;
   border: 0;
+  /* Keep the closed control themed; force a light native option list for readability. */
+  color-scheme: light;
   background: transparent
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%236b7280' d='M1.2 1.2 6 6 10.8 1.2'/%3E%3C/svg%3E")
     no-repeat right center;
@@ -183,6 +185,11 @@ a:hover {
   min-width: 6.5rem;
 }
 
+.lang-dropdown__select option {
+  color: #111827;
+  background-color: #ffffff;
+}
+
 .lang-dropdown__select:focus {
   outline: none;
 }
@@ -190,6 +197,18 @@ a:hover {
 .lang-dropdown__control:focus-within {
   outline: 2px solid var(--focus-ring);
   outline-offset: 2px;
+}
+
+html[data-theme='dark'] .lang-dropdown__control {
+  background: var(--surface-elevated);
+  border-color: color-mix(in srgb, var(--border) 70%, #fff 18%);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme='light']) .lang-dropdown__control {
+    background: var(--surface-elevated);
+    border-color: color-mix(in srgb, var(--border) 70%, #fff 18%);
+  }
 }
 
 .theme-toggle {
@@ -394,6 +413,11 @@ html[data-theme='dark'] .theme-toggle__icon--sun {
 .badge--coming-soon {
   color: var(--warning);
   border-color: color-mix(in srgb, var(--warning) 35%, var(--border));
+}
+
+.badge--beta-testing {
+  color: var(--accent);
+  border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
 }
 
 .badge--in-development {

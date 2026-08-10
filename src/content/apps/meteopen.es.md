@@ -11,21 +11,31 @@ price: free
 hasAds: false
 hasAnalytics: false
 requiresAccount: false
-shortDescription: Aplicación meteorológica de 0xVera. Los detalles se están preparando antes de la publicación.
+worksOffline: true
+shortDescription: App del tiempo sin anuncios de 0xVera. Pronóstico con Open-Meteo; avisos/radar AEMET opcionales en España con tu propia API key (solo en el dispositivo).
 icon: /apps/meteopen/icon.svg
 privacyUrl: /meteopen/privacy
 supportUrl: /meteopen/support
 featured: false
 order: 2
 tags:
-  - próximamente
+  - tiempo
+  - privacidad
   - android
   - ios
-features: []
-permissions: []
-seoTitle: MeteOpen — Próximamente
-seoDescription: MeteOpen es una aplicación próxima de 0xVera para Android e iOS. Los detalles se publicarán cuando estén confirmados.
-incomplete: true
+features:
+  - Pronósticos con Open-Meteo
+  - Avisos y radar AEMET opcionales en España con tu propia API key OpenData
+  - Ubicaciones guardadas y caché offline en el dispositivo
+  - Sin anuncios, sin cuentas y sin SDK de analytics
+permissions:
+  - Internet para el pronóstico (y productos AEMET si están activados)
+  - Ubicación opcional si eliges GPS al añadir un lugar
+seoTitle: MeteOpen — El tiempo de 0xVera
+seoDescription: MeteOpen es la app del tiempo sin anuncios de 0xVera. Pronóstico con Open-Meteo; avisos/radar AEMET opcionales en España con tu propia API key en el dispositivo.
+incomplete: false
 ---
 
-MeteOpen es una aplicación próxima de 0xVera para Android e iOS. Los detalles confirmados de producto, privacidad y aspectos técnicos se publicarán aquí antes del lanzamiento. Esta página no realiza afirmaciones no verificadas.
+MeteOpen es la app del tiempo sin anuncios de 0xVera. El pronóstico se solicita a Open-Meteo. En España puedes activar de forma opcional avisos y radar oficiales de AEMET con tu propia API key OpenData, que permanece en tu dispositivo y solo se envía a AEMET.
+
+0xVera no opera un backend que recopile tus ubicaciones, búsquedas o credenciales AEMET. Android es la primera plataforma; iOS está previsto.

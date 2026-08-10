@@ -7,26 +7,35 @@ status: coming-soon
 platforms:
   - android
   - ios
-# TODO: Confirm version, minimum OS, offline/network behaviour, permissions, weather sources
 price: free
 hasAds: false
 hasAnalytics: false
 requiresAccount: false
-shortDescription: Weather-focused application from 0xVera. Details are being prepared before publication.
+worksOffline: true
+shortDescription: No-ads weather app by 0xVera. Forecasts via Open-Meteo; optional AEMET warnings/radar in Spain with your own OpenData key (device-only).
 icon: /apps/meteopen/icon.svg
 privacyUrl: /meteopen/privacy
 supportUrl: /meteopen/support
 featured: false
 order: 2
 tags:
-  - coming-soon
+  - weather
+  - privacy
   - android
   - ios
-features: []
-permissions: []
-seoTitle: MeteOpen — Coming soon
-seoDescription: MeteOpen is an upcoming application from 0xVera for Android and iOS. Product details will be published when confirmed.
-incomplete: true
+features:
+  - Weather forecasts via Open-Meteo
+  - Optional AEMET warnings and radar in Spain with your own OpenData API key
+  - Saved locations and offline forecast cache on device
+  - No ads, no accounts and no analytics SDKs
+permissions:
+  - Internet to fetch forecasts (and AEMET products if enabled)
+  - Optional location when you choose GPS to add a place
+seoTitle: MeteOpen — Weather by 0xVera
+seoDescription: MeteOpen is a no-ads weather app by 0xVera. Forecasts via Open-Meteo; optional AEMET warnings/radar in Spain with your own OpenData key stored on device.
+incomplete: false
 ---
 
-MeteOpen is an upcoming application from 0xVera for Android and iOS. Confirmed product, privacy and technical details will be published here before release. No unverified claims are made on this page.
+MeteOpen is a no-ads weather app by 0xVera. Forecasts are requested from Open-Meteo. In Spain you can optionally enable official AEMET warnings and radar with your own OpenData API key, which stays on your device and is sent only to AEMET.
+
+0xVera does not operate a backend that collects your locations, searches or AEMET credentials. Android is the first target platform; iOS is planned.

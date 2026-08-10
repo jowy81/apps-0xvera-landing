@@ -57,6 +57,18 @@ test.describe('catalog site', () => {
     ).toBeVisible();
   });
 
+  test('MeteOpen privacy is published and indexable', async ({ page }) => {
+    await page.goto('/meteopen/privacy');
+    await expect(page.getByRole('heading', { name: /Privacy Policy — MeteOpen/i })).toBeVisible();
+    await expect(page.getByText(/Open-Meteo/i).first()).toBeVisible();
+    await expect(page.getByText(/AEMET OpenData/i).first()).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Política de privacidad — MeteOpen/i })).toBeVisible();
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      'index,follow',
+    );
+  });
+
   test('feedback page loads with EN/ES form links', async ({ page }) => {
     const response = await page.goto('/feedback');
     expect(response?.status()).toBe(200);

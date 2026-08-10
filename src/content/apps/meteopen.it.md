@@ -11,21 +11,31 @@ price: free
 hasAds: false
 hasAnalytics: false
 requiresAccount: false
-shortDescription: Applicazione meteo di 0xVera. I dettagli sono in preparazione prima della pubblicazione.
+worksOffline: true
+shortDescription: App meteo senza ads di 0xVera. Previsioni via Open-Meteo; avvisi/radar AEMET opzionali in Spagna con la tua chiave OpenData (solo sul dispositivo).
 icon: /apps/meteopen/icon.svg
 privacyUrl: /meteopen/privacy
 supportUrl: /meteopen/support
 featured: false
 order: 2
 tags:
-  - in-arrivo
+  - meteo
+  - privacy
   - android
   - ios
-features: []
-permissions: []
-seoTitle: MeteOpen — In arrivo
-seoDescription: MeteOpen è un’applicazione in arrivo di 0xVera per Android e iOS. I dettagli saranno pubblicati quando confermati.
-incomplete: true
+features:
+  - Previsioni via Open-Meteo
+  - Avvisi e radar AEMET opzionali in Spagna con la tua chiave OpenData
+  - Luoghi salvati e cache offline sul dispositivo
+  - Niente ads, niente account e niente SDK analytics
+permissions:
+  - Internet per le previsioni (e prodotti AEMET se attivi)
+  - Posizione opzionale se scegli il GPS per aggiungere un luogo
+seoTitle: MeteOpen — Meteo di 0xVera
+seoDescription: MeteOpen è l’app meteo senza ads di 0xVera. Previsioni via Open-Meteo; avvisi/radar AEMET opzionali in Spagna con la tua chiave OpenData sul dispositivo.
+incomplete: false
 ---
 
-MeteOpen è un’applicazione in arrivo di 0xVera per Android e iOS. I dettagli confermati di prodotto, privacy e aspetti tecnici saranno pubblicati qui prima del rilascio. Questa pagina non formula affermazioni non verificate.
+MeteOpen è l’app meteo senza ads di 0xVera. Le previsioni sono richieste a Open-Meteo. In Spagna puoi attivare opzionalmente avvisi e radar ufficiali AEMET con la tua chiave OpenData, che resta sul dispositivo e viene inviata solo ad AEMET.
+
+0xVera non gestisce un backend che raccoglie i tuoi luoghi, ricerche o credenziali AEMET. Android è la prima piattaforma; iOS è previsto.

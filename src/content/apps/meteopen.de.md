@@ -11,21 +11,31 @@ price: free
 hasAds: false
 hasAnalytics: false
 requiresAccount: false
-shortDescription: Wetter-App von 0xVera. Details werden vor der Veröffentlichung vorbereitet.
+worksOffline: true
+shortDescription: Werbefreie Wetter-App von 0xVera. Vorhersagen über Open-Meteo; optionale AEMET-Warnungen/Radar in Spanien mit eigenem OpenData-Key (nur auf dem Gerät).
 icon: /apps/meteopen/icon.svg
 privacyUrl: /meteopen/privacy
 supportUrl: /meteopen/support
 featured: false
 order: 2
 tags:
-  - demnächst
+  - wetter
+  - datenschutz
   - android
   - ios
-features: []
-permissions: []
-seoTitle: MeteOpen — Demnächst
-seoDescription: MeteOpen ist eine kommende Anwendung von 0xVera für Android und iOS. Details werden veröffentlicht, sobald sie bestätigt sind.
-incomplete: true
+features:
+  - Wettervorhersagen über Open-Meteo
+  - Optionale AEMET-Warnungen und Radar in Spanien mit eigenem OpenData-API-Key
+  - Gespeicherte Orte und Offline-Vorhersage-Cache auf dem Gerät
+  - Keine Werbung, keine Konten und keine Analytics-SDKs
+permissions:
+  - Internet für Vorhersagen (und AEMET-Produkte falls aktiviert)
+  - Optionaler Standort, wenn Sie GPS zum Hinzufügen eines Orts wählen
+seoTitle: MeteOpen — Wetter von 0xVera
+seoDescription: MeteOpen ist eine werbefreie Wetter-App von 0xVera. Vorhersagen über Open-Meteo; optionale AEMET-Warnungen/Radar in Spanien mit eigenem OpenData-Key auf dem Gerät.
+incomplete: false
 ---
 
-MeteOpen ist eine kommende Anwendung von 0xVera für Android und iOS. Bestätigte Produkt-, Datenschutz- und Technikdetails werden hier vor dem Release veröffentlicht. Diese Seite trifft keine ungeprüften Aussagen.
+MeteOpen ist eine werbefreie Wetter-App von 0xVera. Vorhersagen werden bei Open-Meteo angefragt. In Spanien können Sie optional offizielle AEMET-Warnungen und Radar mit Ihrem eigenen OpenData-API-Key aktivieren; der Key bleibt auf dem Gerät und wird nur an AEMET gesendet.
+
+0xVera betreibt kein Backend, das Ihre Orte, Suchen oder AEMET-Zugangsdaten sammelt. Android ist die erste Zielplattform; iOS ist geplant.

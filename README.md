@@ -105,8 +105,8 @@ Config: `src/config/community.ts`. Details: [docs/FEEDBACK_AND_TESTING.md](docs/
 
 | App | Status | Notes |
 | --- | --- | --- |
-| CardQR | Coming soon | Privacy published at `/cardqr/privacy` |
-| MeteOpen | Coming soon | Placeholders for description/privacy/assets |
+| CardQR | Coming soon / beta testers open | Privacy published at `/cardqr/privacy` |
+| MeteOpen | Coming soon | Privacy published at `/meteopen/privacy` |
 | Cupid's Oracle | Coming soon | External privacy at cupidsoracle.com |
 
 ## Deployment
@@ -125,7 +125,7 @@ Primary: **Cloudflare Pages** (static). See [docs/DEPLOYMENT.md](docs/DEPLOYMENT
 
 ## Pending before production launch
 
-- Complete MeteOpen and Cupid's Oracle product fields
+- Complete Cupid's Oracle product fields where still placeholder
 - Confirm hosting/legal placeholders in portal privacy
 - Set `PUBLIC_GA_MEASUREMENT_ID` only when ready
 - Publish GitHub repository and attach custom domain

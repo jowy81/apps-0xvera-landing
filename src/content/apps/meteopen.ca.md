@@ -13,7 +13,7 @@ hasAnalytics: false
 requiresAccount: false
 worksOffline: true
 shortDescription: App del temps sense anuncis de 0xVera. Pronòstic amb Open-Meteo; avisos/radar AEMET opcionals a Espanya amb la teva pròpia API key (només al dispositiu).
-icon: /apps/meteopen/icon.svg
+icon: /apps/meteopen/icon.png
 privacyUrl: /meteopen/privacy
 supportUrl: /meteopen/support
 featured: false

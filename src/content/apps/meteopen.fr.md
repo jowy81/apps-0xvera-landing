@@ -13,7 +13,7 @@ hasAnalytics: false
 requiresAccount: false
 worksOffline: true
 shortDescription: Appli météo sans pubs par 0xVera. Prévisions via Open-Meteo ; alertes/radar AEMET optionnels en Espagne avec votre propre clé OpenData (sur l’appareil uniquement).
-icon: /apps/meteopen/icon.svg
+icon: /apps/meteopen/icon.png
 privacyUrl: /meteopen/privacy
 supportUrl: /meteopen/support
 featured: false

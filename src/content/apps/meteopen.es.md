@@ -3,7 +3,7 @@ slug: meteopen
 locale: es
 name: MeteOpen
 developer: 0xVera
-status: coming-soon
+status: beta-testing
 platforms:
   - android
   - ios
@@ -32,10 +32,10 @@ permissions:
   - Internet para el pronóstico (y productos AEMET si están activados)
   - Ubicación opcional si eliges GPS al añadir un lugar
 seoTitle: MeteOpen — El tiempo de 0xVera
-seoDescription: MeteOpen es la app del tiempo sin anuncios de 0xVera. Pronóstico con Open-Meteo; avisos/radar AEMET opcionales en España con tu propia API key en el dispositivo.
+seoDescription: MeteOpen es la app del tiempo sin anuncios de 0xVera. Pronóstico con Open-Meteo; avisos/radar AEMET opcionales en España. Beta testers de Android abiertos.
 incomplete: false
 ---
 
 MeteOpen es la app del tiempo sin anuncios de 0xVera. El pronóstico se solicita a Open-Meteo. En España puedes activar de forma opcional avisos y radar oficiales de AEMET con tu propia API key OpenData, que permanece en tu dispositivo y solo se envía a AEMET.
 
-0xVera no opera un backend que recopile tus ubicaciones, búsquedas o credenciales AEMET. Android es la primera plataforma; iOS está previsto.
+0xVera no opera un backend que recopile tus ubicaciones, búsquedas o credenciales AEMET. Los beta testers de Android están abiertos; iOS está previsto.

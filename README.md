@@ -106,7 +106,7 @@ Config: `src/config/community.ts`. Details: [docs/FEEDBACK_AND_TESTING.md](docs/
 | App | Status | Notes |
 | --- | --- | --- |
 | CardQR | Coming soon / beta testers open | Privacy published at `/cardqr/privacy` |
-| MeteOpen | Coming soon | Privacy published at `/meteopen/privacy` |
+| MeteOpen | Beta testers open | Privacy published at `/meteopen/privacy` |
 | Cupid's Oracle | Coming soon | External privacy at cupidsoracle.com |
 
 ## Deployment

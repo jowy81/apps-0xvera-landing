@@ -148,6 +148,15 @@ test.describe('catalog site', () => {
     await expect(feedback).toHaveAttribute('href', '/feedback?app=cardqr');
   });
 
+  test('MeteOpen shows open beta testers status', async ({ page }) => {
+    await page.goto('/meteopen');
+    await expect(page.locator('.badge--beta-testing')).toHaveText(/Beta testers open/);
+    await expect(page.getByRole('link', { name: 'Join Android beta testers' })).toHaveAttribute(
+      'href',
+      '/testers',
+    );
+  });
+
   test('site has no public 0xVera Devs identity', async ({ page }) => {
     await page.goto('/');
     await expect(page.locator('body')).not.toContainText('0xVera Devs');

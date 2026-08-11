@@ -126,6 +126,19 @@ test.describe('catalog site', () => {
     ).toBeVisible();
     await expect(page.getByRole('heading', { name: 'Privacy' })).toBeVisible();
     await expect(page.getByText(/verified email address/i)).toBeVisible();
+    await expect(page.locator('#testers-guide-link')).toHaveAttribute('href', '/testers/guide');
+  });
+
+  test('testers guide page shows steps and screenshots', async ({ page }) => {
+    const response = await page.goto('/es/testers/guide');
+    expect(response?.status()).toBe(200);
+    await expect(
+      page.getByRole('heading', { level: 1, name: 'Cómo unirte a Android Testers' }),
+    ).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Espera a que aprueben/i })).toBeVisible();
+    await expect(page.locator('img[src="/testers/guide/01-apps-catalog.png"]')).toBeVisible();
+    await expect(page.locator('img[src="/testers/guide/05b-play-opt-in.png"]')).toBeVisible();
+    await expect(page.getByText(/un informe por cada uno/i)).toBeVisible();
   });
 
   test('app detail exposes give feedback link', async ({ page }) => {

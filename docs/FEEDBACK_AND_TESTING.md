@@ -28,6 +28,7 @@ Closed test programme per app (Google Play)
 | --- | --- |
 | `/feedback` | `en` (default), `/es/feedback`, `/ca/…`, `/fr/…`, `/de/…`, `/it/…` |
 | `/testers` | same pattern |
+| `/testers/guide` | Illustrated join / opt-in / feedback steps |
 
 Optional query on feedback:
 

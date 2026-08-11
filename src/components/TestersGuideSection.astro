@@ -1,0 +1,87 @@
+---
+import { getTestersJoinHref, hasTestersGroupUrl } from '@/config/community';
+import type { Locale } from '@/config/site';
+import { testersGuideSteps } from '@/config/testersGuide';
+import { t } from '@/config/ui';
+import { localizedPath } from '@/lib/paths';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const testersHref = localizedPath(locale, '/testers');
+const feedbackHref = localizedPath(locale, '/feedback');
+const joinHref = getTestersJoinHref();
+const hasGroupUrl = hasTestersGroupUrl();
+---
+
+<div class="container section community-page" data-page="testers-guide">
+  <header class="community-page__header">
+    <p class="muted">
+      <a href={testersHref}>{t(locale, 'guide.backToTesters')}</a>
+    </p>
+    <h1>{t(locale, 'guide.title')}</h1>
+    <p class="lead">{t(locale, 'guide.intro')}</p>
+    <p class="muted">{t(locale, 'guide.screensNote')}</p>
+  </header>
+
+  <ol class="guide-steps">
+    {
+      testersGuideSteps.map((step, index) => (
+        <li class="guide-step panel" id={step.id}>
+          <h2 class="guide-step__title">
+            <span class="guide-step__number">{index + 1}</span>
+            {t(locale, step.titleKey)}
+          </h2>
+          <p class="guide-step__body">{t(locale, step.bodyKey)}</p>
+
+          {step.id === 'join-group' && (
+            <p class="community-page__cta">
+              <a
+                class="button button--primary"
+                href={joinHref}
+                target={hasGroupUrl ? '_blank' : undefined}
+                rel={hasGroupUrl ? 'noopener noreferrer' : undefined}
+                data-analytics-event="tester_group_open"
+                data-source="testers_guide"
+              >
+                {t(locale, 'testers.cta')}
+              </a>
+            </p>
+          )}
+
+          {step.id === 'feedback' && (
+            <p class="community-page__cta">
+              <a
+                class="button button--secondary"
+                href={feedbackHref}
+                data-analytics-event="tester_feedback_open"
+                data-source="testers_guide"
+              >
+                {t(locale, 'testers.shareFeedback')}
+              </a>
+            </p>
+          )}
+
+          {step.shots.length > 0 && (
+            <div class:list={['guide-shots', { 'guide-shots--pair': step.shots.length > 1 }]}>
+              {step.shots.map((shot) => (
+                <figure class="guide-shot">
+                  <img
+                    src={shot.src}
+                    alt={t(locale, shot.altKey)}
+                    loading="lazy"
+                    decoding="async"
+                    width="390"
+                    height="844"
+                  />
+                </figure>
+              ))}
+            </div>
+          )}
+        </li>
+      ))
+    }
+  </ol>
+</div>

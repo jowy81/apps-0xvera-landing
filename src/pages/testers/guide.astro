@@ -1,0 +1,16 @@
+---
+import TestersGuideSection from '@/components/TestersGuideSection.astro';
+import BaseLayout from '@/layouts/BaseLayout.astro';
+import { t } from '@/config/ui';
+
+const locale = 'en' as const;
+---
+
+<BaseLayout
+  locale={locale}
+  title={t(locale, 'guide.seoTitle')}
+  description={t(locale, 'guide.seoDescription')}
+  canonicalPath="/testers/guide"
+>
+  <TestersGuideSection locale={locale} />
+</BaseLayout>

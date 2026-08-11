@@ -123,6 +123,47 @@ const en: Dictionary = {
   'testers.privacyTitle': 'Privacy',
   'testers.privacyBody':
     'Group membership is managed through Google Groups. Google may process data associated with your Google account under its own policies. 0xVera does not need to publish the member list. You can leave the group whenever you want.\n\nFeedback forms require a Google account and record the verified email address associated with the submission. This is used to identify tester feedback, prevent abuse and allow follow-up when necessary. Submissions are stored with Google Forms/Sheets. Do not send sensitive data.',
+  'testers.guideCta': 'How to join (step by step)',
+  'testers.guideCtaHint': 'Follow the illustrated guide: group, Play opt-in, install and feedback.',
+  'guide.seoTitle': 'Tester guide | 0xVera',
+  'guide.seoDescription':
+    'Step-by-step guide to join 0xVera Android Testers, opt in on Google Play and send feedback.',
+  'guide.title': 'How to join Android Testers',
+  'guide.intro':
+    'Follow these steps to request access to the Google Group, join a closed test for the app you want, install it and share feedback.',
+  'guide.backToTesters': 'Back to Android Testers',
+  'guide.screensNote':
+    'Screenshots are from a real phone. Google Groups and Google Play screens may look slightly different on your device.',
+  'guide.step1.title': 'Browse the apps on apps.0xvera.com',
+  'guide.step1.body':
+    'Open the catalog and check which apps show open beta testing. Start with the app you want to try.',
+  'guide.step1.alt': '0xVera apps catalog on a phone, showing CardQR with open beta testers',
+  'guide.step2.title': 'Open Android Testers and join the Google Group',
+  'guide.step2.body':
+    'Go to the Android Testers page (also in the site menu) and tap “Join the tester community”. You need a Google account. Joining the group does not enrol you in every app automatically.',
+  'guide.step2.alt': 'Android Testers page with the button to join the Google Group',
+  'guide.step3.title': 'Wait until your membership is approved',
+  'guide.step3.body':
+    'After you ask to join the Google Group, wait until an owner approves the request. You will only see the tester conversations once you are a member.',
+  'guide.step4.title': 'Open the conversation for the app you want to test',
+  'guide.step4.body':
+    'In the group, open the conversation for that app. Inside you will find the Google Play closed-testing / opt-in link.',
+  'guide.step4.altA': 'Google Group conversations list with tester topics for each app',
+  'guide.step4.altB': 'App conversation showing the Google Play opt-in link',
+  'guide.step5.title': 'Become a tester on Google Play',
+  'guide.step5.body':
+    'Open the opt-in link and tap “Become a tester”. Because you are already in the group, Play usually accepts you right away and shows that you are a tester, with a link to download the app on Google Play.',
+  'guide.step5.altA': 'Google Play closed testing page with Become a tester',
+  'guide.step5.altB': 'Google Play confirmation that you are a tester, with download link',
+  'guide.step6.title': 'Install the app from Google Play',
+  'guide.step6.body':
+    'Use “Download it on Google Play” (or open the listing) and install the testing build. It appears like a normal Play install for enrolled testers.',
+  'guide.step6.alt': 'Google Play listing for the testing build ready to install',
+  'guide.step7.title': 'Try the app and send feedback',
+  'guide.step7.body':
+    'After testing, open App Feedback on this site. Positive feedback helps, but if you find a bug or something confusing, please report it — and send a separate report for each issue you notice.',
+  'guide.step7.altA': 'App Feedback page with English and Spanish form options',
+  'guide.step7.altB': 'Example of a filled positive feedback form',
   'footer.identity': '0xVera',
   'footer.tagline': 'Independent applications with a focus on utility and privacy.',
   'footer.rights': 'All rights reserved.',
@@ -254,6 +295,48 @@ const es: Dictionary = {
   'testers.privacyTitle': 'Privacidad',
   'testers.privacyBody':
     'La membresía del grupo se gestiona mediante Google Groups. Google puede tratar los datos asociados a tu cuenta de Google según sus propias políticas. 0xVera no necesita publicar la lista de miembros. Puedes abandonar el grupo cuando quieras.\n\nLos formularios de feedback requieren una cuenta de Google y registran la dirección de correo verificada asociada al envío. Se usa para identificar el feedback de testers, prevenir abusos y poder hacer seguimiento cuando haga falta. Las respuestas se almacenan con Google Forms/Sheets. No envíes datos sensibles.',
+  'testers.guideCta': 'Cómo unirte (paso a paso)',
+  'testers.guideCtaHint':
+    'Guía con capturas: grupo de Google, opt-in en Play, instalación y feedback.',
+  'guide.seoTitle': 'Guía para testers | 0xVera',
+  'guide.seoDescription':
+    'Guía paso a paso para unirte a 0xVera Android Testers, hacer opt-in en Google Play y enviar feedback.',
+  'guide.title': 'Cómo unirte a Android Testers',
+  'guide.intro':
+    'Sigue estos pasos para pedir acceso al Google Group, unirte a la prueba cerrada de la app que quieras, instalarla y enviar feedback.',
+  'guide.backToTesters': 'Volver a Android Testers',
+  'guide.screensNote':
+    'Las capturas son de un móvil real. Las pantallas de Google Groups y Google Play pueden verse un poco distintas en tu dispositivo.',
+  'guide.step1.title': 'Mira las apps en apps.0xvera.com',
+  'guide.step1.body':
+    'Abre el catálogo y comprueba qué apps tienen beta testers abiertos. Empieza por la app que quieras probar.',
+  'guide.step1.alt': 'Catálogo de apps de 0xVera en el móvil, con CardQR en beta testers abiertos',
+  'guide.step2.title': 'Entra en Android Testers y únete al Google Group',
+  'guide.step2.body':
+    'Ve a la página Android Testers (también está en el menú del sitio) y pulsa «Unirse a la comunidad de testers». Necesitas una cuenta de Google. Entrar en el grupo no te apunta automáticamente a todas las apps.',
+  'guide.step2.alt': 'Página Android Testers con el botón para unirse al Google Group',
+  'guide.step3.title': 'Espera a que aprueben tu entrada en el grupo',
+  'guide.step3.body':
+    'Cuando solicitas unirte al Google Group, hay que esperar a que un administrador apruebe la petición. Solo verás las conversaciones de testers cuando seas miembro.',
+  'guide.step4.title': 'Abre la conversación de la app que quieres probar',
+  'guide.step4.body':
+    'Dentro del grupo, abre la conversación de esa app. Ahí encontrarás el enlace de opt-in / prueba cerrada de Google Play.',
+  'guide.step4.altA': 'Lista de conversaciones del Google Group con temas de cada app',
+  'guide.step4.altB': 'Conversación de una app con el enlace de opt-in de Google Play',
+  'guide.step5.title': 'Hazte tester en Google Play',
+  'guide.step5.body':
+    'Abre el enlace de opt-in y pulsa «Become a tester». Como ya estás en el grupo, Play suele aceptarte al momento y muestra que eres tester, con el enlace para descargar la app en Google Play.',
+  'guide.step5.altA': 'Página de prueba cerrada de Google Play con Become a tester',
+  'guide.step5.altB': 'Confirmación de Google Play de que ya eres tester, con enlace de descarga',
+  'guide.step6.title': 'Instala la app desde Google Play',
+  'guide.step6.body':
+    'Usa «Download it on Google Play» (o abre la ficha) e instala la build de testing. Para los testers inscritos se instala como una app normal de Play.',
+  'guide.step6.alt': 'Ficha de Google Play de la build de testing lista para instalar',
+  'guide.step7.title': 'Prueba la app y envía feedback',
+  'guide.step7.body':
+    'Cuando la hayas probado, ve a Feedback de las apps en este sitio. El feedback positivo ayuda, pero si detectas un error o algo confuso, repórtalo: si ves varios problemas, envía un informe por cada uno.',
+  'guide.step7.altA': 'Página de feedback con opciones de formulario en inglés y español',
+  'guide.step7.altB': 'Ejemplo de formulario de feedback positivo rellenado',
   'footer.tagline': 'Aplicaciones independientes con foco en utilidad y privacidad.',
   'footer.rights': 'Todos los derechos reservados.',
   'consent.title': 'Preferencia de analítica',

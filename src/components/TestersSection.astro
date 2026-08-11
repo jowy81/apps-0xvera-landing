@@ -17,6 +17,7 @@ const joinHref = getTestersJoinHref();
 const hasGroupUrl = hasTestersGroupUrl();
 const groupEmail = communityConfig.testers.groupEmail;
 const feedbackHref = localizedPath(locale, '/feedback');
+const guideHref = localizedPath(locale, '/testers/guide');
 const bodyParagraphs = t(locale, 'testers.body').split('\n\n');
 const privacyParagraphs = t(locale, 'testers.privacyBody').split('\n\n');
 ---
@@ -32,7 +33,7 @@ const privacyParagraphs = t(locale, 'testers.privacyBody').split('\n\n');
     <p>{t(locale, 'testers.googleAccountRequired')}</p>
     <p>{t(locale, 'testers.voluntary')}</p>
 
-    <p class="community-page__cta">
+    <p class="community-page__cta community-page__cta--stack">
       <a
         class="button button--primary"
         href={joinHref}
@@ -44,7 +45,11 @@ const privacyParagraphs = t(locale, 'testers.privacyBody').split('\n\n');
       >
         {t(locale, 'testers.cta')}
       </a>
+      <a class="button button--secondary" href={guideHref} id="testers-guide-link">
+        {t(locale, 'testers.guideCta')}
+      </a>
     </p>
+    <p class="muted">{t(locale, 'testers.guideCtaHint')}</p>
 
     {
       !hasGroupUrl && (

@@ -34,7 +34,11 @@ const hasGroupUrl = hasTestersGroupUrl();
             <span class="guide-step__number">{index + 1}</span>
             {t(locale, step.titleKey)}
           </h2>
-          <p class="guide-step__body">{t(locale, step.bodyKey)}</p>
+          {t(locale, step.bodyKey)
+            .split('\n\n')
+            .map((paragraph) => (
+              <p class="guide-step__body">{paragraph}</p>
+            ))}
 
           {step.id === 'join-group' && (
             <p class="community-page__cta">

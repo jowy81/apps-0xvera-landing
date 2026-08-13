@@ -152,12 +152,12 @@ const en: Dictionary = {
   'guide.step4.altB': 'App conversation showing the Google Play opt-in link',
   'guide.step5.title': 'Become a tester on Google Play',
   'guide.step5.body':
-    'Open the opt-in link and tap “Become a tester”. Because you are already in the group, Play usually accepts you right away and shows that you are a tester, with a link to download the app on Google Play.',
+    'Open the opt-in link and tap “Become a tester”. Because you are already in the group, Play usually accepts you right away and shows that you are a tester, with a link to download the app on Google Play.\n\nThe download link is created after Google checks that you are in the tester group. That can take a few seconds. If you tap it too soon, Play may say the app is not available — wait a moment and tap again.',
   'guide.step5.altA': 'Google Play closed testing page with Become a tester',
   'guide.step5.altB': 'Google Play confirmation that you are a tester, with download link',
   'guide.step6.title': 'Install the app from Google Play',
   'guide.step6.body':
-    'Use “Download it on Google Play” (or open the listing) and install the testing build. It appears like a normal Play install for enrolled testers.',
+    'Use “Download it on Google Play” (or open the listing) and install the testing build. It appears like a normal Play install for enrolled testers. If the listing looks missing or errors on the first try, wait a few seconds and open the link again.',
   'guide.step6.alt': 'Google Play listing for the testing build ready to install',
   'guide.step7.title': 'Try the app and send feedback',
   'guide.step7.body':
@@ -325,12 +325,12 @@ const es: Dictionary = {
   'guide.step4.altB': 'Conversación de una app con el enlace de opt-in de Google Play',
   'guide.step5.title': 'Hazte tester en Google Play',
   'guide.step5.body':
-    'Abre el enlace de opt-in y pulsa «Become a tester». Como ya estás en el grupo, Play suele aceptarte al momento y muestra que eres tester, con el enlace para descargar la app en Google Play.',
+    'Abre el enlace de opt-in y pulsa «Become a tester». Como ya estás en el grupo, Play suele aceptarte al momento y muestra que eres tester, con el enlace para descargar la app en Google Play.\n\nEse enlace de descarga se genera cuando Google comprueba que estás en el grupo de testers, y a veces tarda unos segundos. Si pulsas demasiado pronto, Play puede decir que la app no existe o no está disponible: espera un momento y vuelve a pulsar.',
   'guide.step5.altA': 'Página de prueba cerrada de Google Play con Become a tester',
   'guide.step5.altB': 'Confirmación de Google Play de que ya eres tester, con enlace de descarga',
   'guide.step6.title': 'Instala la app desde Google Play',
   'guide.step6.body':
-    'Usa «Download it on Google Play» (o abre la ficha) e instala la build de testing. Para los testers inscritos se instala como una app normal de Play.',
+    'Usa «Download it on Google Play» (o abre la ficha) e instala la build de testing. Para los testers inscritos se instala como una app normal de Play. Si la primera vez falla o parece que no existe, espera unos segundos y abre el enlace otra vez.',
   'guide.step6.alt': 'Ficha de Google Play de la build de testing lista para instalar',
   'guide.step7.title': 'Prueba la app y envía feedback',
   'guide.step7.body':

@@ -139,6 +139,7 @@ test.describe('catalog site', () => {
     await expect(page.locator('img[src="/testers/guide/01-apps-catalog.png"]')).toBeVisible();
     await expect(page.locator('img[src="/testers/guide/05b-play-opt-in.png"]')).toBeVisible();
     await expect(page.getByText(/un informe por cada uno/i)).toBeVisible();
+    await expect(page.getByText(/tarda unos segundos/i)).toBeVisible();
   });
 
   test('app detail exposes give feedback link', async ({ page }) => {

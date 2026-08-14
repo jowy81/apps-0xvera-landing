@@ -3,7 +3,7 @@ slug: cupids-oracle
 locale: es
 name: "Cupid's Oracle"
 developer: 0xVera
-status: coming-soon
+status: beta-testing
 platforms:
   - android
   - ios
@@ -12,7 +12,7 @@ price: free
 hasAds: false
 hasAnalytics: false
 requiresAccount: false
-shortDescription: Aplicación próxima de 0xVera con sitio web y política de privacidad propios. Detalles pendientes de confirmación.
+shortDescription: Aplicación de 0xVera con sitio web propio. Beta testers de Android abiertos; iOS previsto.
 icon: /apps/cupids-oracle/icon.png
 webUrl: https://cupidsoracle.com
 privacyUrl: https://cupidsoracle.com/privacy
@@ -20,15 +20,14 @@ supportUrl: /cupids-oracle/support
 featured: false
 order: 3
 tags:
-  - próximamente
   - android
   - ios
   - web
 features: []
 permissions: []
-seoTitle: "Cupid's Oracle — Próximamente"
-seoDescription: "Cupid's Oracle es una aplicación próxima de 0xVera para Android, iOS y web. Los detalles confirmados se publicarán cuando estén disponibles."
-incomplete: true
+seoTitle: "Cupid's Oracle — Beta testers abiertos"
+seoDescription: "Cupid's Oracle de 0xVera para Android, iOS y web. Beta testers de Android abiertos. Privacidad en cupidsoracle.com/privacy."
+incomplete: false
 ---
 
-Cupid's Oracle es una aplicación próxima de 0xVera. Tiene un sitio web propio y publicará su política de privacidad en [cupidsoracle.com/privacy](https://cupidsoracle.com/privacy). Android e iOS están previstos; iOS aún no se ha validado para publicación. Los detalles confirmados se añadirán aquí antes del lanzamiento.
+Cupid's Oracle es una aplicación de 0xVera con sitio web y política de privacidad propios en [cupidsoracle.com/privacy](https://cupidsoracle.com/privacy). Los beta testers de Android están abiertos; iOS está previsto y aún no se ha validado para publicación.

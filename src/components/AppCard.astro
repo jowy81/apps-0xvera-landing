@@ -43,7 +43,9 @@ const href = toAppPath(app.data.slug, locale);
           <span class="tag">{t(locale, `platform.${platform}`)}</span>
         ))
       }
-      <span class="tag">{t(locale, `price.${app.data.price}`)}</span>
+      {app.data.status !== 'private' && (
+        <span class="tag">{t(locale, `price.${app.data.price}`)}</span>
+      )}
       {app.data.tags.slice(0, 3).map((tag) => <span class="tag">{tag}</span>)}
     </div>
     <span class="app-card__cta">{t(locale, 'catalog.viewDetails')}</span>

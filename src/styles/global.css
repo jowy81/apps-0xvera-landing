@@ -445,6 +445,11 @@ html[data-theme='dark'] .theme-toggle__icon--sun {
   border-color: color-mix(in srgb, var(--accent) 40%, var(--border));
 }
 
+.badge--private {
+  color: var(--text-secondary);
+  border-color: color-mix(in srgb, var(--text-secondary) 35%, var(--border));
+}
+
 .badge--in-development {
   color: var(--accent);
   border-color: color-mix(in srgb, var(--accent) 35%, var(--border));

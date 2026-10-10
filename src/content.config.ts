@@ -6,6 +6,7 @@ const appStatus = z.enum([
   'available',
   'coming-soon',
   'beta-testing',
+  'private',
   'in-development',
   'unavailable',
 ]);

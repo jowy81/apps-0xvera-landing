@@ -42,8 +42,11 @@ const en: Dictionary = {
   'status.available': 'Available',
   'status.coming-soon': 'Coming soon',
   'status.beta-testing': 'Beta testers open',
+  'status.private': 'Private',
   'status.in-development': 'In development',
   'status.unavailable': 'Unavailable',
+  'app.privateNotice':
+    'This is a private application. Access is restricted and public registration, download or sign-up is not available.',
   'price.free': 'Free',
   'price.paid': 'Paid',
   'price.freemium': 'Freemium',
@@ -219,8 +222,11 @@ const es: Dictionary = {
   'status.available': 'Disponible',
   'status.coming-soon': 'Próximamente',
   'status.beta-testing': 'Beta testers abiertos',
+  'status.private': 'Privada',
   'status.in-development': 'En desarrollo',
   'status.unavailable': 'No disponible',
+  'app.privateNotice':
+    'Esta es una aplicación privada. El acceso está restringido y no hay registro, descarga ni alta públicos.',
   'price.free': 'Gratis',
   'price.paid': 'De pago',
   'app.developer': 'Desarrollador',
@@ -388,8 +394,11 @@ const ca: Dictionary = {
   'status.available': 'Disponible',
   'status.coming-soon': 'Properament',
   'status.beta-testing': 'Beta testers oberts',
+  'status.private': 'Privada',
   'status.in-development': 'En desenvolupament',
   'status.unavailable': 'No disponible',
+  'app.privateNotice':
+    'Aquesta és una aplicació privada. L’accés està restringit i no hi ha registre, descàrrega ni alta públics.',
   'app.joinBetaTesters': 'Uneix-te als beta testers d’Android',
   'feedback.formsLanguages':
     'Els formularis de feedback estan disponibles de moment en anglès i espanyol.',
@@ -481,8 +490,11 @@ const fr: Dictionary = {
   'status.available': 'Disponible',
   'status.coming-soon': 'Bientôt',
   'status.beta-testing': 'Bêta testeurs ouverts',
+  'status.private': 'Privée',
   'status.in-development': 'En développement',
   'status.unavailable': 'Indisponible',
+  'app.privateNotice':
+    'Ceci est une application privée. L’accès est restreint et il n’y a pas d’inscription, de téléchargement ni d’accès public.',
   'app.joinBetaTesters': 'Rejoindre les bêta testeurs Android',
   'feedback.formsLanguages':
     'Les formulaires de feedback sont pour l’instant disponibles en anglais et en espagnol.',
@@ -574,8 +586,11 @@ const de: Dictionary = {
   'status.available': 'Verfügbar',
   'status.coming-soon': 'Demnächst',
   'status.beta-testing': 'Beta-Tester offen',
+  'status.private': 'Privat',
   'status.in-development': 'In Entwicklung',
   'status.unavailable': 'Nicht verfügbar',
+  'app.privateNotice':
+    'Dies ist eine private Anwendung. Der Zugang ist beschränkt; es gibt keine öffentliche Anmeldung, keinen Download und keinen öffentlichen Zugang.',
   'app.joinBetaTesters': 'Android-Beta-Testern beitreten',
   'feedback.formsLanguages':
     'Feedback-Formulare sind derzeit auf Englisch und Spanisch verfügbar.',
@@ -667,8 +682,11 @@ const it: Dictionary = {
   'status.available': 'Disponibile',
   'status.coming-soon': 'In arrivo',
   'status.beta-testing': 'Beta tester aperti',
+  'status.private': 'Privata',
   'status.in-development': 'In sviluppo',
   'status.unavailable': 'Non disponibile',
+  'app.privateNotice':
+    'Questa è un’applicazione privata. L’accesso è riservato e non sono disponibili registrazione, download o accesso pubblici.',
   'app.joinBetaTesters': 'Unisciti ai beta tester Android',
   'feedback.formsLanguages':
     'I moduli di feedback sono al momento disponibili in inglese e spagnolo.',

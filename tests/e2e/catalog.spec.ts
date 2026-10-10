@@ -4,9 +4,35 @@ test.describe('catalog site', () => {
   test('home loads with app cards', async ({ page }) => {
     await page.goto('/');
     await expect(page.getByRole('heading', { level: 1, name: 'Apps by 0xVera' })).toBeVisible();
+    await expect(page.getByRole('link', { name: /Olympo/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /CardQR/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /MeteOpen/i })).toBeVisible();
     await expect(page.getByRole('link', { name: /Cupid/i })).toBeVisible();
+  });
+
+  test('Olympo private page and privacy explain Google Calendar OAuth', async ({ page }) => {
+    await page.goto('/olympo');
+    await expect(page.getByRole('heading', { level: 1, name: 'Olympo' })).toBeVisible();
+    await expect(page.locator('.badge--private')).toHaveText(/Private/i);
+    await expect(page.getByText(/private application/i).first()).toBeVisible();
+    await expect(page.getByRole('link', { name: 'Google Play' })).toHaveCount(0);
+    await expect(page.getByRole('link', { name: /Join Android beta testers/i })).toHaveCount(0);
+    await expect(page.getByRole('link', { name: 'Give feedback' })).toHaveCount(0);
+
+    await page.goto('/olympo/privacy');
+    await expect(page.getByRole('heading', { name: /Privacy Policy — Olympo/i })).toBeVisible();
+    await expect(page.getByText('https://www.googleapis.com/auth/calendar').first()).toBeVisible();
+    await expect(page.getByText(/OpenRouter/i).first()).toBeVisible();
+    await expect(page.getByText(/reading and writing/i).first()).toBeVisible();
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute('content', 'index,follow');
+
+    await page.goto('/privacy');
+    await expect(page.getByRole('heading', { name: /^Olympo$/i })).toBeVisible();
+    await expect(page.getByText('https://www.googleapis.com/auth/calendar').first()).toBeVisible();
+    await expect(page.getByRole('link', { name: /Olympo Privacy Policy/i })).toHaveAttribute(
+      'href',
+      '/olympo/privacy',
+    );
   });
 
   test('individual app routes work', async ({ page }) => {

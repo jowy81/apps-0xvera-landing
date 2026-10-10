@@ -3,16 +3,16 @@ appSlug: portal
 type: portal-privacy
 locale: en
 title: Privacy Policy — apps.0xvera.com
-description: Privacy information for the 0xVera apps catalog website.
+description: Privacy information for the 0xVera apps catalog website, including Olympo Google Calendar OAuth transparency.
 draft: false
-updatedAt: 2026-08-06
+updatedAt: 2026-10-10
 ---
 
 # Privacy Policy for apps.0xvera.com
 
-**Last updated:** 2026-08-06
+**Last updated:** 2026-10-10
 
-This policy describes how the public website at `apps.0xvera.com` handles information. It applies to the catalog site itself, not necessarily to each listed application.
+This policy describes how the public website at `apps.0xvera.com` handles information. It applies to the catalog site itself. Individual applications may have additional policies.
 
 Legal pages on this catalog (privacy, cookies and related notices) are provided in **English** for now.
 
@@ -59,14 +59,53 @@ Like most websites, hosting and CDN infrastructure may process standard technica
 
 This catalog may link to Google Play, App Store pages, and third-party sites such as cupidsoracle.com. Those services have their own privacy practices.
 
+## Olympo
+
+Olympo is listed on this catalog as a **private** application. It is not available for public registration, download or self-serve access.
+
+Olympo uses **Google OAuth** to access **Google Calendar** for authorized operators.
+
+### Google Calendar OAuth scope
+
+Olympo requests:
+
+`https://www.googleapis.com/auth/calendar`
+
+That scope allows reading and writing Google Calendar data (viewing calendars and events; creating, updating and deleting events), subject to Google’s API rules and the connected account’s settings. Olympo does **not** use a read-only Calendar scope.
+
+### How Olympo uses Calendar data
+
+Authorized Olympo components may:
+
+- List calendars and retrieve event details needed for internal automation and assistance
+- Check free/busy availability
+- Create, update or delete events when Olympo’s own controls record explicit human authorization for that write
+
+### Tokens
+
+OAuth client credentials and refresh tokens for Google Calendar are stored in Olympo’s private server environment configuration. This catalog website does not store those tokens and does not perform the OAuth exchange.
+
+### AI providers
+
+When AI assistance features are used with calendar tools, calendar-related content needed for the task may be processed by an external AI provider (**OpenRouter**). Olympo does not claim that such content is never shared with third parties.
+
+### Revocation and contact
+
+Google Account holders can revoke third-party access at [Google Account permissions](https://myaccount.google.com/permissions). For Olympo-specific privacy questions or deletion requests about credentials held by 0xVera, contact **support@0xvera.com**.
+
+Full details: [Olympo Privacy Policy](/olympo/privacy).
+
+Catalog entry: [Olympo](/olympo).
+
 ## Application-specific privacy policies
 
 Each application may have its own privacy policy:
 
+- [Olympo](/olympo/privacy) (private platform; Google Calendar OAuth)
 - [CardQR](/cardqr/privacy)
 - [MeteOpen](/meteopen/privacy)
 - [Cupid's Oracle](https://cupidsoracle.com/privacy) (external)
 
 ## Changes
 
-This policy may be updated as hosting, analytics or legal details are confirmed. The “Last updated” date above will change when material updates are published.
+This policy may be updated as hosting, analytics, catalog apps or legal details change. The “Last updated” date above will change when material updates are published.

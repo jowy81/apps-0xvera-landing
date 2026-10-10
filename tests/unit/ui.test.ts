@@ -22,4 +22,10 @@ describe('ui dictionary', () => {
     expect(t('en', 'testers.googleAccountRequired')).toMatch(/Google account/i);
     expect(t('en', 'feedback.accountNote')).toMatch(/verified email/i);
   });
+
+  it('exposes private app status copy', () => {
+    expect(t('en', 'status.private')).toBe('Private');
+    expect(t('es', 'status.private')).toBe('Privada');
+    expect(t('en', 'app.privateNotice')).toMatch(/private application/i);
+  });
 });

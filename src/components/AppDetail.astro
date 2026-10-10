@@ -24,6 +24,7 @@ const showFeedback = data.feedbackEnabled !== false;
 const testingUrl = data.testingUrl;
 const testersHref = localizedPath(locale, '/testers');
 const showBetaTestersLink = data.status === 'beta-testing' && !data.playStoreUrl;
+const isPrivate = data.status === 'private';
 ---
 
 <article>
@@ -50,10 +51,18 @@ const showBetaTestersLink = data.status === 'beta-testing' && !data.playStoreUrl
             <span class="tag">{t(locale, `platform.${platform}`)}</span>
           ))
         }
-        <span class="tag">{t(locale, `price.${data.price}`)}</span>
+        {!isPrivate && <span class="tag">{t(locale, `price.${data.price}`)}</span>}
       </div>
     </div>
   </header>
+
+  {
+    isPrivate && (
+      <p class="notice" role="note">
+        {t(locale, 'app.privateNotice')}
+      </p>
+    )
+  }
 
   {
     data.incomplete && (
@@ -201,7 +210,7 @@ const showBetaTestersLink = data.status === 'beta-testing' && !data.playStoreUrl
                 {t(locale, 'app.joinBetaTesters')}
               </a>
             </li>
-          ) : data.platforms.includes('android') ? (
+          ) : !isPrivate && data.platforms.includes('android') ? (
             <li>
               <span aria-disabled="true">{t(locale, 'app.comingSoonPlay')}</span>
             </li>
@@ -219,7 +228,7 @@ const showBetaTestersLink = data.status === 'beta-testing' && !data.playStoreUrl
                 {t(locale, 'app.appStore')}
               </a>
             </li>
-          ) : data.platforms.includes('ios') ? (
+          ) : !isPrivate && data.platforms.includes('ios') ? (
             <li>
               <span aria-disabled="true">{t(locale, 'app.comingSoonAppStore')}</span>
             </li>
